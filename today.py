@@ -65,7 +65,7 @@ def fetch_streak(username):
 def graph_commits():
     query_count('graph_commits')
     if not ACCESS_TOKEN:
-        return 500, [4, 8, 15, 12, 20, 10, 18]
+        return 210, [4, 8, 15, 12, 20, 10, 18]
     query = '''
     query($login: String!) {
         user(login: $login) {
@@ -344,7 +344,7 @@ def svg_overwrite(filename, age_data, commit_data, streak_data, rank_data, repo_
     justify_format(root, 'streak_data', streak_data, 0)
 
     # Custom Prefixes
-    justify_format(root, 'commit_data', f"Commits: {commit_data + 2}", 0)
+    justify_format(root, 'commit_data', f"Commits: {commit_data + 2:,}", 0)
     justify_format(root, 'rank_data', f"#{rank_data}", 0)
     justify_format(root, 'loc_add', f"++ {loc_data[0]}", 0)
     justify_format(root, 'loc_del', f"-- {loc_data[1]}", 0)
