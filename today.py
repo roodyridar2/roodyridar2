@@ -65,11 +65,12 @@ def fetch_streak(username):
 def graph_commits():
     query_count('graph_commits')
     if not ACCESS_TOKEN:
-        return 210, [4, 8, 15, 12, 20, 10, 18]
+        return 210, 210, [4, 8, 15, 12, 20, 10, 18]
     query = '''
     query($login: String!) {
         user(login: $login) {
             contributionsCollection {
+                totalCommitContributions
                 contributionCalendar {
                     totalContributions
                     weeks {
@@ -83,14 +84,16 @@ def graph_commits():
     }'''
     variables = {'login': USER_NAME}
     request = simple_request(graph_commits.__name__, query, variables)
-    cal = request.json()['data']['user']['contributionsCollection']['contributionCalendar']
-    total = int(cal['totalContributions'])
+    cc = request.json()['data']['user']['contributionsCollection']
+    commit_cnt = int(cc.get('totalCommitContributions', 0))
+    contrib_cnt = int(cc['contributionCalendar']['totalContributions'])
+    cal = cc['contributionCalendar']
     days = []
     for week in cal.get('weeks', [])[-4:]:
         for day in week.get('contributionDays', []):
             days.append(day.get('contributionCount', 0))
     recent_7 = days[-7:] if len(days) >= 7 else [4, 8, 15, 12, 20, 10, 18]
-    return total, recent_7
+    return commit_cnt, contrib_cnt, recent_7
 
 
 def graph_repos_stars(count_type, owner_affiliation, cursor=None):
@@ -338,13 +341,13 @@ def svg_overwrite(filename, age_data, commit_data, streak_data, rank_data, repo_
     # Standard formats
     justify_format(root, 'age_data', age_data, 0)
     justify_format(root, 'repo_data', repo_data, 0)
-    justify_format(root, 'contrib_data', commit_data, 0)
+    justify_format(root, 'contrib_data', contrib_data, 0)
     justify_format(root, 'follower_data', follower_data, 0)
     justify_format(root, 'loc_data', loc_data[2], 0)
     justify_format(root, 'streak_data', streak_data, 0)
 
     # Custom Prefixes
-    justify_format(root, 'commit_data', f"Commits: {commit_data + 2:,}", 0)
+    justify_format(root, 'commit_data', f"Commits: {commit_data:,}", 0)
     justify_format(root, 'rank_data', f"#{rank_data}", 0)
     justify_format(root, 'loc_add', f"++ {loc_data[0]}", 0)
     justify_format(root, 'loc_del', f"-- {loc_data[1]}", 0)
@@ -377,13 +380,10 @@ def svg_overwrite(filename, age_data, commit_data, streak_data, rank_data, repo_
 def justify_format(root, element_id, new_text, total_width):
     if isinstance(new_text, int):
         new_text = f"{'{:,}'.format(new_text)}"
-    new_text = str(new_text)
-    find_and_replace(root, element_id, new_text)
 
-    if total_width > 0:
-        dots_needed = total_width - len(new_text)
-        dot_string = ' ' + ('.' * (dots_needed - 2)) + ' ' if dots_needed > 2 else ''
-        find_and_replace(root, f"{element_id}_dots", dot_string)
+    element = root.find(f".//*[@id='{element_id}']")
+    if element is not None:
+        element.text = str(new_text)
 
 
 def find_and_replace(root, element_id, new_text):
@@ -444,15 +444,14 @@ if __name__ == '__main__':
     formatter('LOC (cached)', loc_time)
 
     commit_res, _ = perf_counter(graph_commits)
-    if isinstance(commit_res, tuple):
-        commit_data, daily_counts = commit_res
+    if isinstance(commit_res, tuple) and len(commit_res) == 3:
+        commit_cnt, contrib_cnt, daily_counts = commit_res
     else:
-        commit_data, daily_counts = commit_res, [4, 8, 15, 12, 20, 10, 18]
+        commit_cnt, contrib_cnt, daily_counts = 210, 210, [4, 8, 15, 12, 20, 10, 18]
 
     streak_data, _ = perf_counter(fetch_streak, USER_NAME)
     rank_data, _ = perf_counter(committers_rank_getter, USER_NAME)
     repo_data, _ = perf_counter(graph_repos_stars, 'repos', ['OWNER'])
-    contrib_data, _ = perf_counter(graph_repos_stars, 'repos', ['OWNER', 'COLLABORATOR', 'ORGANIZATION_MEMBER'])
     follower_data, _ = perf_counter(follower_getter, USER_NAME)
 
     # Prepare comma formatted strings for SVG overwrite
@@ -462,9 +461,9 @@ if __name__ == '__main__':
         '{:,}'.format(total_loc[2])
     ]
 
-    svg_overwrite('dark_mode.svg', age_data, commit_data, streak_data, rank_data, repo_data, contrib_data,
+    svg_overwrite('dark_mode.svg', age_data, commit_cnt, streak_data, rank_data, repo_data, contrib_cnt,
                   follower_data, loc_formatted, daily_counts)
-    svg_overwrite('light_mode.svg', age_data, commit_data, streak_data, rank_data, repo_data, contrib_data,
+    svg_overwrite('light_mode.svg', age_data, commit_cnt, streak_data, rank_data, repo_data, contrib_cnt,
                   follower_data, loc_formatted, daily_counts)
 
     print('Total GitHub GraphQL API calls:', sum(QUERY_COUNT.values()))

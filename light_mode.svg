@@ -182,7 +182,7 @@
 
         <g transform="translate(20, 50)">
             <text x="0" y="14" class="subtitle">Total Commits:</text>
-            <text x="100" y="14" id="commit_data" class="mono">Commits: 212</text>
+            <text x="100" y="14" id="commit_data" class="mono">Commits: 210</text>
 
             <text x="250" y="14" class="subtitle">Followers:</text>
             <text x="320" y="14" id="follower_data" class="mono">10</text>
