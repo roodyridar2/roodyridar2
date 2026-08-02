@@ -54,14 +54,14 @@
     <g transform="translate(24, 130)">
         <rect width="216" height="88" rx="12" class="card"/>
         <text x="20" y="30" class="label">Repositories</text>
-        <text x="20" y="66" id="repo_data" class="val-num">0</text>
+        <text x="20" y="66" id="repo_data" class="val-num">20</text>
     </g>
 
     <!-- 2. Contributions -->
     <g transform="translate(256, 130)">
         <rect width="216" height="88" rx="12" class="card"/>
         <text x="20" y="30" class="label">Contributions</text>
-        <text x="20" y="66" id="contrib_data" class="val-accent">1,568</text>
+        <text x="20" y="66" id="contrib_data" class="val-accent">3,615</text>
     </g>
 
     <!-- 3. Current Streak -->
@@ -182,10 +182,10 @@
 
         <g transform="translate(20, 50)">
             <text x="0" y="14" class="subtitle">Total Commits:</text>
-            <text x="100" y="14" id="commit_data" class="mono">Commits: 1,568</text>
+            <text x="105" y="14" id="commit_data" class="mono">3,566</text>
 
             <text x="250" y="14" class="subtitle">Followers:</text>
-            <text x="320" y="14" id="follower_data" class="mono">0</text>
+            <text x="320" y="14" id="follower_data" class="mono">10</text>
 
             <text x="400" y="14" class="subtitle">Portfolio:</text>
             <text x="470" y="14" class="mono" fill="#4F46E5">https://ayub.is-a.dev/</text>
