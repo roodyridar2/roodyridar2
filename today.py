@@ -338,7 +338,7 @@ def svg_overwrite(filename, age_data, commit_data, streak_data, rank_data, repo_
     # Standard formats
     justify_format(root, 'age_data', age_data, 0)
     justify_format(root, 'repo_data', repo_data, 0)
-    justify_format(root, 'contrib_data', contrib_data, 0)
+    justify_format(root, 'contrib_data', commit_data, 0)
     justify_format(root, 'follower_data', follower_data, 0)
     justify_format(root, 'loc_data', loc_data[2], 0)
     justify_format(root, 'streak_data', streak_data, 0)

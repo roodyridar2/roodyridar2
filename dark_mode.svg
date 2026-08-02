@@ -61,7 +61,7 @@
     <g transform="translate(256, 130)">
         <rect width="216" height="88" rx="12" class="d-card"/>
         <text x="20" y="30" class="d-label">Contributions</text>
-        <text x="20" y="66" id="contrib_data" class="d-val-accent">20</text>
+        <text x="20" y="66" id="contrib_data" class="d-val-accent">210</text>
     </g>
 
     <!-- 3. Current Streak -->
