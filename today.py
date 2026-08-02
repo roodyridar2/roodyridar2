@@ -65,21 +65,32 @@ def fetch_streak(username):
 def graph_commits():
     query_count('graph_commits')
     if not ACCESS_TOKEN:
-        return 500
+        return 500, [4, 8, 15, 12, 20, 10, 18]
     query = '''
     query($login: String!) {
         user(login: $login) {
             contributionsCollection {
                 contributionCalendar {
                     totalContributions
+                    weeks {
+                        contributionDays {
+                            contributionCount
+                        }
+                    }
                 }
             }
         }
     }'''
     variables = {'login': USER_NAME}
     request = simple_request(graph_commits.__name__, query, variables)
-    data = request.json()['data']['user']['contributionsCollection']
-    return int(data['contributionCalendar']['totalContributions'])
+    cal = request.json()['data']['user']['contributionsCollection']['contributionCalendar']
+    total = int(cal['totalContributions'])
+    days = []
+    for week in cal.get('weeks', [])[-4:]:
+        for day in week.get('contributionDays', []):
+            days.append(day.get('contributionCount', 0))
+    recent_7 = days[-7:] if len(days) >= 7 else [4, 8, 15, 12, 20, 10, 18]
+    return total, recent_7
 
 
 def graph_repos_stars(count_type, owner_affiliation, cursor=None):
@@ -320,7 +331,7 @@ def extract_rank_from_committers_svg(svg_text):
 
 
 def svg_overwrite(filename, age_data, commit_data, streak_data, rank_data, repo_data, contrib_data, follower_data,
-                  loc_data):
+                  loc_data, daily_counts=None):
     tree = etree.parse(filename)
     root = tree.getroot()
 
@@ -333,11 +344,23 @@ def svg_overwrite(filename, age_data, commit_data, streak_data, rank_data, repo_
     justify_format(root, 'streak_data', streak_data, 0)
 
     # Custom Prefixes
-    # Add 10 to accommodate for the 2 commits done in the excluded repos which are too large to parse
     justify_format(root, 'commit_data', f"Commits: {commit_data + 2}", 0)
     justify_format(root, 'rank_data', f"#{rank_data}", 0)
     justify_format(root, 'loc_add', f"++ {loc_data[0]}", 0)
     justify_format(root, 'loc_del', f"-- {loc_data[1]}", 0)
+
+    # Dynamic Activity Graph Bars
+    if daily_counts:
+        max_c = max(daily_counts) if max(daily_counts) > 0 else 1
+        base_y = 105
+        max_h = 75
+        for i in range(min(7, len(daily_counts))):
+            bar = root.find(f".//*[@id='bar_{i}']")
+            if bar is not None:
+                c = daily_counts[i]
+                h = int(max(6, (c / max_c) * max_h))
+                bar.attrib['height'] = str(h)
+                bar.attrib['y'] = str(base_y - h)
 
     tree.write(filename, encoding='utf-8', xml_declaration=True)
 
@@ -411,7 +434,12 @@ if __name__ == '__main__':
     total_loc, loc_time = perf_counter(loc_query, ['OWNER', 'COLLABORATOR', 'ORGANIZATION_MEMBER'], 7)
     formatter('LOC (cached)', loc_time)
 
-    commit_data, _ = perf_counter(graph_commits)
+    commit_res, _ = perf_counter(graph_commits)
+    if isinstance(commit_res, tuple):
+        commit_data, daily_counts = commit_res
+    else:
+        commit_data, daily_counts = commit_res, [4, 8, 15, 12, 20, 10, 18]
+
     streak_data, _ = perf_counter(fetch_streak, USER_NAME)
     rank_data, _ = perf_counter(committers_rank_getter, USER_NAME)
     repo_data, _ = perf_counter(graph_repos_stars, 'repos', ['OWNER'])
@@ -426,10 +454,8 @@ if __name__ == '__main__':
     ]
 
     svg_overwrite('dark_mode.svg', age_data, commit_data, streak_data, rank_data, repo_data, contrib_data,
-                  follower_data,
-                  loc_formatted)
+                  follower_data, loc_formatted, daily_counts)
     svg_overwrite('light_mode.svg', age_data, commit_data, streak_data, rank_data, repo_data, contrib_data,
-                  follower_data,
-                  loc_formatted)
+                  follower_data, loc_formatted, daily_counts)
 
     print('Total GitHub GraphQL API calls:', sum(QUERY_COUNT.values()))
