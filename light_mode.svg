@@ -14,7 +14,7 @@
             .val-num { font: 700 28px 'JetBrains Mono', monospace; fill: #0F172A; }
             .val-accent { font: 700 28px 'JetBrains Mono', monospace; fill: #4F46E5; }
             .val-green { font: 700 28px 'JetBrains Mono', monospace; fill: #059669; }
-            .val-purple { font: 700 28px 'JetBrains Mono', monospace; fill: #7C3AED; }
+            .val-purple { font: 700 28px 'JetBrains Mono', monospace; fill: #4F46E5; }
 
             .chip { fill: #F1F5F9; stroke: #E2E8F0; stroke-width: 1; }
             .chip-accent { fill: #EEF2FF; stroke: #C7D2FE; stroke-width: 1; }
@@ -138,31 +138,31 @@
             <line x1="0" y1="105" x2="400" y2="105" stroke="#CBD5E1"/>
 
             <!-- Bar 0 (Mon) -->
-            <rect id="bar_0" x="20" y="90" width="28" height="15" class="bar"/>
+            <path id="bar_0" d="M 20,105 L 20,95 Q 20,90 25,90 L 43,90 Q 48,90 48,95 L 48,105 Z" class="bar"/>
             <text x="34" y="120" class="day-label">Mon</text>
 
             <!-- Bar 1 (Tue) -->
-            <rect id="bar_1" x="75" y="75" width="28" height="30" class="bar"/>
+            <path id="bar_1" d="M 75,105 L 75,80 Q 75,75 80,75 L 98,75 Q 103,75 103,80 L 103,105 Z" class="bar"/>
             <text x="89" y="120" class="day-label">Tue</text>
 
             <!-- Bar 2 (Wed) -->
-            <rect id="bar_2" x="130" y="49" width="28" height="56" class="bar-active"/>
+            <path id="bar_2" d="M 130,105 L 130,54 Q 130,49 135,49 L 153,49 Q 158,49 158,54 L 158,105 Z" class="bar-active"/>
             <text x="144" y="120" class="day-label">Wed</text>
 
             <!-- Bar 3 (Thu) -->
-            <rect id="bar_3" x="185" y="60" width="28" height="45" class="bar"/>
+            <path id="bar_3" d="M 185,105 L 185,65 Q 185,60 190,60 L 208,60 Q 213,60 213,65 L 213,105 Z" class="bar"/>
             <text x="199" y="120" class="day-label">Thu</text>
 
             <!-- Bar 4 (Fri) -->
-            <rect id="bar_4" x="240" y="30" width="28" height="75" class="bar"/>
+            <path id="bar_4" d="M 240,105 L 240,35 Q 240,30 245,30 L 263,30 Q 268,30 268,35 L 268,105 Z" class="bar"/>
             <text x="254" y="120" class="day-label">Fri</text>
 
             <!-- Bar 5 (Sat) -->
-            <rect id="bar_5" x="295" y="68" width="28" height="37" class="bar"/>
+            <path id="bar_5" d="M 295,105 L 295,73 Q 295,68 300,68 L 318,68 Q 323,68 323,73 L 323,105 Z" class="bar"/>
             <text x="309" y="120" class="day-label">Sat</text>
 
             <!-- Bar 6 (Sun) -->
-            <rect id="bar_6" x="350" y="38" width="28" height="67" class="bar"/>
+            <path id="bar_6" d="M 350,105 L 350,43 Q 350,38 355,38 L 373,38 Q 378,38 378,43 L 378,105 Z" class="bar"/>
             <text x="364" y="120" class="day-label">Sun</text>
         </g>
     </g>

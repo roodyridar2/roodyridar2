@@ -354,13 +354,22 @@ def svg_overwrite(filename, age_data, commit_data, streak_data, rank_data, repo_
         max_c = max(daily_counts) if max(daily_counts) > 0 else 1
         base_y = 105
         max_h = 75
+        bar_x = [20, 75, 130, 185, 240, 295, 350]
+        w = 28
+        r = 5
         for i in range(min(7, len(daily_counts))):
             bar = root.find(f".//*[@id='bar_{i}']")
             if bar is not None:
                 c = daily_counts[i]
                 h = int(max(6, (c / max_c) * max_h))
-                bar.attrib['height'] = str(h)
-                bar.attrib['y'] = str(base_y - h)
+                y = base_y - h
+                x = bar_x[i] if i < len(bar_x) else 20 + i * 55
+                path_d = f"M {x},{base_y} L {x},{y+r} Q {x},{y} {x+r},{y} L {x+w-r},{y} Q {x+w},{y} {x+w},{y+r} L {x+w},{base_y} Z"
+                if 'path' in bar.tag.lower():
+                    bar.attrib['d'] = path_d
+                else:
+                    bar.attrib['height'] = str(h)
+                    bar.attrib['y'] = str(y)
 
     tree.write(filename, encoding='utf-8', xml_declaration=True)
 
