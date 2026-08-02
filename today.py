@@ -65,7 +65,7 @@ def fetch_streak(username):
 def graph_commits():
     query_count('graph_commits')
     if not ACCESS_TOKEN:
-        return 210, 210, [4, 8, 15, 12, 20, 10, 18]
+        return 1568, 1568, [12, 25, 40, 32, 55, 28, 45]
     query = '''
     query($login: String!) {
         user(login: $login) {
@@ -447,7 +447,7 @@ if __name__ == '__main__':
     if isinstance(commit_res, tuple) and len(commit_res) == 3:
         commit_cnt, contrib_cnt, daily_counts = commit_res
     else:
-        commit_cnt, contrib_cnt, daily_counts = 210, 210, [4, 8, 15, 12, 20, 10, 18]
+        commit_cnt, contrib_cnt, daily_counts = 1568, 1568, [12, 25, 40, 32, 55, 28, 45]
 
     streak_data, _ = perf_counter(fetch_streak, USER_NAME)
     rank_data, _ = perf_counter(committers_rank_getter, USER_NAME)

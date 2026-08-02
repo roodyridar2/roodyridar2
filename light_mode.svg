@@ -54,14 +54,14 @@
     <g transform="translate(24, 130)">
         <rect width="216" height="88" rx="12" class="card"/>
         <text x="20" y="30" class="label">Repositories</text>
-        <text x="20" y="66" id="repo_data" class="val-num">20</text>
+        <text x="20" y="66" id="repo_data" class="val-num">0</text>
     </g>
 
     <!-- 2. Contributions -->
     <g transform="translate(256, 130)">
         <rect width="216" height="88" rx="12" class="card"/>
         <text x="20" y="30" class="label">Contributions</text>
-        <text x="20" y="66" id="contrib_data" class="val-accent">210</text>
+        <text x="20" y="66" id="contrib_data" class="val-accent">1,568</text>
     </g>
 
     <!-- 3. Current Streak -->
@@ -138,19 +138,19 @@
             <line x1="0" y1="105" x2="400" y2="105" stroke="#CBD5E1"/>
 
             <!-- Bar 0 (Mon) -->
-            <path id="bar_0" d="M 20,105 L 20,95 Q 20,90 25,90 L 43,90 Q 48,90 48,95 L 48,105 Z" class="bar"/>
+            <path id="bar_0" d="M 20,105 L 20,94 Q 20,89 25,89 L 43,89 Q 48,89 48,94 L 48,105 Z" class="bar"/>
             <text x="34" y="120" class="day-label">Mon</text>
 
             <!-- Bar 1 (Tue) -->
-            <path id="bar_1" d="M 75,105 L 75,80 Q 75,75 80,75 L 98,75 Q 103,75 103,80 L 103,105 Z" class="bar"/>
+            <path id="bar_1" d="M 75,105 L 75,76 Q 75,71 80,71 L 98,71 Q 103,71 103,76 L 103,105 Z" class="bar"/>
             <text x="89" y="120" class="day-label">Tue</text>
 
             <!-- Bar 2 (Wed) -->
-            <path id="bar_2" d="M 130,105 L 130,54 Q 130,49 135,49 L 153,49 Q 158,49 158,54 L 158,105 Z" class="bar-active"/>
+            <path id="bar_2" d="M 130,105 L 130,56 Q 130,51 135,51 L 153,51 Q 158,51 158,56 L 158,105 Z" class="bar-active"/>
             <text x="144" y="120" class="day-label">Wed</text>
 
             <!-- Bar 3 (Thu) -->
-            <path id="bar_3" d="M 185,105 L 185,65 Q 185,60 190,60 L 208,60 Q 213,60 213,65 L 213,105 Z" class="bar"/>
+            <path id="bar_3" d="M 185,105 L 185,67 Q 185,62 190,62 L 208,62 Q 213,62 213,67 L 213,105 Z" class="bar"/>
             <text x="199" y="120" class="day-label">Thu</text>
 
             <!-- Bar 4 (Fri) -->
@@ -158,11 +158,11 @@
             <text x="254" y="120" class="day-label">Fri</text>
 
             <!-- Bar 5 (Sat) -->
-            <path id="bar_5" d="M 295,105 L 295,73 Q 295,68 300,68 L 318,68 Q 323,68 323,73 L 323,105 Z" class="bar"/>
+            <path id="bar_5" d="M 295,105 L 295,72 Q 295,67 300,67 L 318,67 Q 323,67 323,72 L 323,105 Z" class="bar"/>
             <text x="309" y="120" class="day-label">Sat</text>
 
             <!-- Bar 6 (Sun) -->
-            <path id="bar_6" d="M 350,105 L 350,43 Q 350,38 355,38 L 373,38 Q 378,38 378,43 L 378,105 Z" class="bar"/>
+            <path id="bar_6" d="M 350,105 L 350,49 Q 350,44 355,44 L 373,44 Q 378,44 378,49 L 378,105 Z" class="bar"/>
             <text x="364" y="120" class="day-label">Sun</text>
         </g>
     </g>
@@ -182,10 +182,10 @@
 
         <g transform="translate(20, 50)">
             <text x="0" y="14" class="subtitle">Total Commits:</text>
-            <text x="100" y="14" id="commit_data" class="mono">Commits: 210</text>
+            <text x="100" y="14" id="commit_data" class="mono">Commits: 1,568</text>
 
             <text x="250" y="14" class="subtitle">Followers:</text>
-            <text x="320" y="14" id="follower_data" class="mono">10</text>
+            <text x="320" y="14" id="follower_data" class="mono">0</text>
 
             <text x="400" y="14" class="subtitle">Portfolio:</text>
             <text x="470" y="14" class="mono" fill="#4F46E5">https://ayub.is-a.dev/</text>
