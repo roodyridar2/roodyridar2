@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="620" viewBox="0 0 1000 620" fill="none">
+    <defs>
+        <!-- Fonts -->
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;700;800&amp;display=swap');
+
+            .d-title { font: 800 28px 'Plus Jakarta Sans', sans-serif; fill: #F8FAFC; letter-spacing: -0.5px; }
+            .d-subtitle { font: 600 15px 'Plus Jakarta Sans', sans-serif; fill: #818CF8; }
+            .d-status { font: 500 13px 'Plus Jakarta Sans', sans-serif; fill: #94A3B8; }
+            .d-label { font: 700 11px 'Plus Jakarta Sans', sans-serif; fill: #64748B; text-transform: uppercase; letter-spacing: 1.2px; }
+            .d-body { font: 500 13px 'Plus Jakarta Sans', sans-serif; fill: #CBD5E1; }
+            .d-mono { font: 700 14px 'JetBrains Mono', monospace; fill: #F1F5F9; }
+            
+            .d-stat-big { font: 800 44px 'JetBrains Mono', monospace; fill: #F8FAFC; letter-spacing: -1px; }
+            .d-streak-num { font: 800 42px 'JetBrains Mono', monospace; fill: #34D399; letter-spacing: -1px; }
+            .d-rank-num { font: 800 42px 'JetBrains Mono', monospace; fill: #A78BFA; letter-spacing: -1px; }
+            
+            .d-chip-bg { fill: rgba(30, 41, 59, 0.7); stroke: rgba(148, 163, 184, 0.15); stroke-width: 1; }
+            .d-chip-text { font: 600 12px 'Plus Jakarta Sans', sans-serif; fill: #E2E8F0; }
+            .d-chip-highlight { fill: rgba(99, 102, 241, 0.15); stroke: rgba(129, 140, 248, 0.4); stroke-width: 1; }
+            .d-chip-highlight-text { font: 600 12px 'Plus Jakarta Sans', sans-serif; fill: #C7D2FE; }
+
+            .d-add { font: 700 12px 'JetBrains Mono', monospace; fill: #34D399; }
+            .d-del { font: 700 12px 'JetBrains Mono', monospace; fill: #F87171; }
+            .d-footer-text { font: 500 13px 'Plus Jakarta Sans', sans-serif; fill: #94A3B8; }
+            .d-footer-commit { font: 700 13px 'JetBrains Mono', monospace; fill: #818CF8; }
+
+            .glass-card { fill: rgba(15, 23, 42, 0.65); stroke: rgba(255, 255, 255, 0.08); stroke-width: 1; }
+            .glass-card-glow { fill: rgba(30, 41, 59, 0.5); stroke: rgba(129, 140, 248, 0.2); stroke-width: 1; }
+        </style>
+
+        <!-- Gradients -->
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0B0F19"/>
+            <stop offset="50%" stop-color="#111827"/>
+            <stop offset="100%" stop-color="#070A10"/>
+        </linearGradient>
+
+        <linearGradient id="avatarRing" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#6366F1"/>
+            <stop offset="50%" stop-color="#8B5CF6"/>
+            <stop offset="100%" stop-color="#EC4899"/>
+        </linearGradient>
+
+        <linearGradient id="streakGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#059669" stop-opacity="0.25"/>
+            <stop offset="100%" stop-color="#10B981" stop-opacity="0.05"/>
+        </linearGradient>
+
+        <linearGradient id="rankGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.25"/>
+            <stop offset="100%" stop-color="#C084FC" stop-opacity="0.05"/>
+        </linearGradient>
+
+        <linearGradient id="locProgress" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#6366F1"/>
+            <stop offset="50%" stop-color="#8B5CF6"/>
+            <stop offset="100%" stop-color="#34D399"/>
+        </linearGradient>
+
+        <radialGradient id="topGlow" cx="20%" cy="10%" r="60%">
+            <stop offset="0%" stop-color="#6366F1" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+        </radialGradient>
+    </defs>
+
+    <!-- Canvas Background -->
+    <rect width="1000" height="620" rx="32" fill="url(#bgGradient)"/>
+    <rect width="1000" height="620" rx="32" fill="url(#topGlow)"/>
+
+    <!-- Outer Border -->
+    <rect x="1" y="1" width="998" height="618" rx="31" fill="none" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.5"/>
+
+    <!-- ================= HEADER SECTION ================= -->
+    <rect x="24" y="24" width="460" height="190" rx="24" class="glass-card"/>
+    
+    <!-- Avatar Circle with Ring -->
+    <circle cx="78" cy="78" r="36" fill="url(#avatarRing)"/>
+    <circle cx="78" cy="78" r="32" fill="#0F172A"/>
+    <text x="61" y="87" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="22" fill="#818CF8">AM</text>
+
+    <!-- User Header Info -->
+    <text x="130" y="70" class="d-title">Ayub Mahmood</text>
+    <text x="130" y="93" class="d-subtitle">Software Engineer @ Otee</text>
+
+    <!-- Status Badge -->
+    <g transform="translate(130, 108)">
+        <circle cx="6" cy="6" r="4" fill="#34D399"/>
+        <circle cx="6" cy="6" r="7" fill="#34D399" fill-opacity="0.3"/>
+        <text x="18" y="10" class="d-status">Building scalable systems &amp; web apps</text>
+    </g>
+
+    <!-- Tech Stack Chips Row 1 -->
+    <g transform="translate(48, 162)">
+        <rect width="68" height="28" rx="8" class="d-chip-bg"/>
+        <text x="12" y="18" class="d-chip-text">macOS</text>
+
+        <rect x="76" width="76" height="28" rx="8" class="d-chip-bg"/>
+        <text x="88" y="18" class="d-chip-text">Windows</text>
+
+        <rect x="160" width="60" height="28" rx="8" class="d-chip-bg"/>
+        <text x="172" y="18" class="d-chip-text">Linux</text>
+
+        <rect x="228" width="68" height="28" rx="8" class="d-chip-highlight"/>
+        <text x="240" y="18" class="d-chip-highlight-text">Flutter</text>
+    </g>
+
+    <!-- ================= STREAK CARD ================= -->
+    <g transform="translate(504, 24)">
+        <rect width="224" height="190" rx="24" class="glass-card"/>
+        <rect width="224" height="190" rx="24" fill="url(#streakGlow)"/>
+        
+        <!-- Lightning Bolt Streak Icon -->
+        <g transform="translate(24, 24)">
+            <circle cx="16" cy="16" r="16" fill="#10B981" fill-opacity="0.15"/>
+            <path d="M17 5L8 16H15L14 27L23 15H16L17 5Z" fill="#34D399"/>
+        </g>
+
+        <text x="24" y="80" class="d-label">Streak</text>
+        <text x="24" y="132" id="streak_data" class="d-streak-num">7</text>
+        <text x="24" y="162" class="d-body" font-size="12">Consecutive Days ⚡</text>
+    </g>
+
+    <!-- ================= RANK CARD ================= -->
+    <g transform="translate(748, 24)">
+        <rect width="228" height="190" rx="24" class="glass-card"/>
+        <rect width="228" height="190" rx="24" fill="url(#rankGlow)"/>
+
+        <!-- Star / Medal Icon -->
+        <g transform="translate(24, 24)">
+            <circle cx="16" cy="16" r="16" fill="#8B5CF6" fill-opacity="0.15"/>
+            <path d="M16 7L18.472 12.008L24 12.809L20 16.708L20.944 22.213L16 19.613L11.056 22.213L12 16.708L8 12.809L13.528 12.008L16 7Z" fill="#A78BFA"/>
+        </g>
+
+        <text x="24" y="80" class="d-label">Regional Rank</text>
+        <text x="24" y="132" id="rank_data" class="d-rank-num">#31</text>
+        <text x="24" y="162" class="d-body" font-size="12">Top Developer (Kurdistan)</text>
+    </g>
+
+    <!-- ================= BENTO GRID MIDDLE SECTION ================= -->
+
+    <!-- Tech Stack Card (Left Wide Bento) -->
+    <g transform="translate(24, 234)">
+        <rect width="520" height="268" rx="24" class="glass-card"/>
+        
+        <text x="28" y="44" class="d-subtitle" font-size="17">⚡ Tech Stack &amp; Skills</text>
+
+        <!-- Category 1: Languages -->
+        <g transform="translate(28, 62)">
+            <text x="0" y="14" class="d-label">Languages</text>
+            <rect y="24" width="92" height="28" rx="8" class="d-chip-bg"/>
+            <text x="12" y="42" class="d-chip-text">TypeScript</text>
+
+            <rect x="100" y="24" width="90" height="28" rx="8" class="d-chip-bg"/>
+            <text x="112" y="42" class="d-chip-text">JavaScript</text>
+
+            <rect x="198" y="24" width="68" height="28" rx="8" class="d-chip-bg"/>
+            <text x="210" y="42" class="d-chip-text">Python</text>
+
+            <rect x="274" y="24" width="56" height="28" rx="8" class="d-chip-bg"/>
+            <text x="286" y="42" class="d-chip-text">Java</text>
+
+            <rect x="338" y="24" width="52" height="28" rx="8" class="d-chip-bg"/>
+            <text x="350" y="42" class="d-chip-text">SQL</text>
+        </g>
+
+        <!-- Category 2: Frameworks & Ecosystem -->
+        <g transform="translate(28, 128)">
+            <text x="0" y="14" class="d-label">Frameworks &amp; Tools</text>
+            <rect y="24" width="66" height="28" rx="8" class="d-chip-highlight"/>
+            <text x="12" y="42" class="d-chip-highlight-text">Flutter</text>
+
+            <rect x="74" y="24" width="64" height="28" rx="8" class="d-chip-bg"/>
+            <text x="86" y="42" class="d-chip-text">React</text>
+
+            <rect x="146" y="24" width="76" height="28" rx="8" class="d-chip-bg"/>
+            <text x="158" y="42" class="d-chip-text">Node.js</text>
+
+            <rect x="230" y="24" width="68" height="28" rx="8" class="d-chip-bg"/>
+            <text x="242" y="42" class="d-chip-text">Docker</text>
+
+            <rect x="306" y="24" width="72" height="28" rx="8" class="d-chip-bg"/>
+            <text x="318" y="42" class="d-chip-text">Next.js</text>
+
+            <rect x="386" y="24" width="90" height="28" rx="8" class="d-chip-bg"/>
+            <text x="398" y="42" class="d-chip-text">PostgreSQL</text>
+        </g>
+
+        <!-- Category 3: Design & Focus -->
+        <g transform="translate(28, 194)">
+            <text x="0" y="14" class="d-label">Design &amp; Customization</text>
+            <rect y="24" width="94" height="28" rx="8" class="d-chip-bg"/>
+            <text x="12" y="42" class="d-chip-text">TailwindCSS</text>
+
+            <rect x="102" y="24" width="62" height="28" rx="8" class="d-chip-bg"/>
+            <text x="114" y="42" class="d-chip-text">Figma</text>
+
+            <rect x="172" y="24" width="102" height="28" rx="8" class="d-chip-bg"/>
+            <text x="184" y="42" class="d-chip-text">UI/UX Design</text>
+
+            <rect x="282" y="24" width="138" height="28" rx="8" class="d-chip-bg"/>
+            <text x="294" y="42" class="d-chip-text">Linux Desktop Ricing</text>
+        </g>
+    </g>
+
+    <!-- Right Side Stats Block -->
+    <!-- 1. Repos Mini Bento -->
+    <g transform="translate(564, 234)">
+        <rect width="132" height="106" rx="20" class="glass-card"/>
+        <text x="66" y="52" text-anchor="middle" id="repo_data" class="d-stat-big" font-size="28">19</text>
+        <text x="66" y="80" text-anchor="middle" class="d-label">Repos</text>
+    </g>
+
+    <!-- 2. Contribs Mini Bento -->
+    <g transform="translate(708, 234)">
+        <rect width="128" height="106" rx="20" class="glass-card"/>
+        <text x="64" y="52" text-anchor="middle" id="contrib_data" class="d-stat-big" font-size="28" fill="#EC4899">19</text>
+        <text x="64" y="80" text-anchor="middle" class="d-label">Contribs</text>
+    </g>
+
+    <!-- 3. Followers Mini Bento -->
+    <g transform="translate(848, 234)">
+        <rect width="128" height="106" rx="20" class="glass-card"/>
+        <text x="64" y="52" text-anchor="middle" id="follower_data" class="d-stat-big" font-size="28" fill="#818CF8">10</text>
+        <text x="64" y="80" text-anchor="middle" class="d-label">Followers</text>
+    </g>
+
+    <!-- Lines of Code Card (Right Lower Bento) -->
+    <g transform="translate(564, 356)">
+        <rect width="412" height="146" rx="24" class="glass-card-glow"/>
+        
+        <text x="24" y="40" class="d-label">Total Lines of Code</text>
+        <text x="388" y="42" text-anchor="end" id="loc_data" class="d-mono" font-size="22" fill="#F8FAFC">105,000</text>
+
+        <!-- Progress Bar Background -->
+        <rect x="24" y="62" width="364" height="10" rx="5" fill="rgba(30, 41, 59, 0.8)"/>
+        <!-- Progress Bar Fill -->
+        <rect x="24" y="62" width="280" height="10" rx="5" fill="url(#locProgress)"/>
+
+        <!-- Additions / Deletions -->
+        <text x="24" y="110" id="loc_add" class="d-add">++ 150,000</text>
+        <text x="388" y="110" text-anchor="end" id="loc_del" class="d-del">-- 45,000</text>
+    </g>
+
+    <!-- ================= FOOTER BAR ================= -->
+    <g transform="translate(24, 522)">
+        <rect width="952" height="74" rx="20" class="glass-card"/>
+        
+        <!-- Portfolio Badge -->
+        <g transform="translate(24, 22)">
+            <circle cx="14" cy="14" r="14" fill="rgba(99, 102, 241, 0.2)"/>
+            <path d="M14 8C10.7 8 8 10.7 8 14C8 17.3 10.7 20 14 20C17.3 20 20 17.3 20 14C20 10.7 17.3 8 14 8ZM14 18.5C11.5 18.5 9.5 16.5 9.5 14C9.5 11.5 11.5 9.5 14 9.5C16.5 9.5 18.5 11.5 18.5 14C18.5 16.5 16.5 18.5 14 18.5Z" fill="#818CF8"/>
+            <text x="36" y="19" class="d-footer-text">Portfolio: <tspan fill="#F1F5F9" font-weight="700">https://ayub.is-a.dev/</tspan></text>
+        </g>
+
+        <!-- GitHub Handle -->
+        <text x="476" y="41" text-anchor="middle" class="d-footer-text">GitHub: <tspan fill="#C7D2FE" font-weight="600">@roodyridar2</tspan></text>
+
+        <!-- Total Commits Metric -->
+        <text x="928" y="41" text-anchor="end" id="commit_data" class="d-footer-commit">Commits: 502</text>
+    </g>
+
+    <!-- Hidden / script-required dots elements for today.py compatibility -->
+    <text id="age_data" display="none">23 years, 6 months, 19 days</text>
+    <text id="age_data_dots" display="none"> . </text>
+    <text id="commit_data_dots" display="none"> . </text>
+    <text id="rank_data_dots" display="none"> . </text>
+    <text id="repo_data_dots" display="none"> . </text>
+    <text id="follower_data_dots" display="none"> . </text>
+    <text id="loc_data_dots" display="none"> . </text>
+    <text id="streak_data_dots" display="none"> . </text>
+</svg>
