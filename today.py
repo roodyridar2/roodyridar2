@@ -181,7 +181,7 @@ def recursive_loc(owner, repo_name, data, cache_comment, addition_total=0, delet
 
 def loc_query(owner_affiliation, comment_size=0, force_cache=False, cursor=None, edges=None):
     if not ACCESS_TOKEN:
-        return [150000, 45000, 105000, True]
+        return [0, 0, 0, True]
     if edges is None:
         edges = []
     query = '''
