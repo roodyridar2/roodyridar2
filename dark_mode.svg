@@ -61,7 +61,7 @@
     <g transform="translate(256, 130)">
         <rect width="216" height="88" rx="12" class="d-card"/>
         <text x="20" y="30" class="d-label">Contributions</text>
-        <text x="20" y="66" id="contrib_data" class="d-val-accent">3,616</text>
+        <text x="20" y="66" id="contrib_data" class="d-val-accent">3,617</text>
     </g>
 
     <!-- 3. Current Streak -->
@@ -162,7 +162,7 @@
             <text x="309" y="120" class="d-day-label">Sat</text>
 
             <!-- Bar 6 (Sun) -->
-            <path id="bar_6" d="M 350,105 L 350,59 Q 350,54 355,54 L 373,54 Q 378,54 378,59 L 378,105 Z" class="d-bar"/>
+            <path id="bar_6" d="M 350,105 L 350,56 Q 350,51 355,51 L 373,51 Q 378,51 378,56 L 378,105 Z" class="d-bar"/>
             <text x="364" y="120" class="d-day-label">Sun</text>
         </g>
     </g>
@@ -176,13 +176,13 @@
             <text x="0" y="14" class="d-label">Lines of Code</text>
             <text x="110" y="15" id="loc_data" class="d-mono">6,972,660</text>
 
-            <text x="200" y="15" id="loc_add" class="d-add">++ 7,929,630</text>
-            <text x="300" y="15" id="loc_del" class="d-del">-- 956,970</text>
+            <text x="200" y="15" id="loc_add" class="d-add">++ 7,929,631</text>
+            <text x="300" y="15" id="loc_del" class="d-del">-- 956,971</text>
         </g>
 
         <g transform="translate(20, 50)">
             <text x="0" y="14" class="d-subtitle">Total Commits:</text>
-            <text x="105" y="14" id="commit_data" class="d-mono">3,567</text>
+            <text x="105" y="14" id="commit_data" class="d-mono">3,568</text>
 
             <text x="250" y="14" class="d-subtitle">Followers:</text>
             <text x="320" y="14" id="follower_data" class="d-mono">10</text>
