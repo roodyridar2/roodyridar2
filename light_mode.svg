@@ -138,27 +138,27 @@
             <line x1="0" y1="105" x2="400" y2="105" stroke="#CBD5E1"/>
 
             <!-- Bar 0 (Mon) -->
-            <path id="bar_0" d="M 20,105 L 20,70 Q 20,65 25,65 L 43,65 Q 48,65 48,70 L 48,105 Z" class="bar"/>
+            <path id="bar_0" d="M 20,105 L 20,99 Q 20,94 25,94 L 43,94 Q 48,94 48,99 L 48,105 Z" class="bar"/>
             <text x="34" y="120" class="day-label">Mon</text>
 
             <!-- Bar 1 (Tue) -->
-            <path id="bar_1" d="M 75,105 L 75,99 Q 75,94 80,94 L 98,94 Q 103,94 103,99 L 103,105 Z" class="bar"/>
+            <path id="bar_1" d="M 75,105 L 75,96 Q 75,91 80,91 L 98,91 Q 103,91 103,96 L 103,105 Z" class="bar"/>
             <text x="89" y="120" class="day-label">Tue</text>
 
             <!-- Bar 2 (Wed) -->
-            <path id="bar_2" d="M 130,105 L 130,96 Q 130,91 135,91 L 153,91 Q 158,91 158,96 L 158,105 Z" class="bar-active"/>
+            <path id="bar_2" d="M 130,105 L 130,35 Q 130,30 135,30 L 153,30 Q 158,30 158,35 L 158,105 Z" class="bar-active"/>
             <text x="144" y="120" class="day-label">Wed</text>
 
             <!-- Bar 3 (Thu) -->
-            <path id="bar_3" d="M 185,105 L 185,35 Q 185,30 190,30 L 208,30 Q 213,30 213,35 L 213,105 Z" class="bar"/>
+            <path id="bar_3" d="M 185,105 L 185,38 Q 185,33 190,33 L 208,33 Q 213,33 213,38 L 213,105 Z" class="bar"/>
             <text x="199" y="120" class="day-label">Thu</text>
 
             <!-- Bar 4 (Fri) -->
-            <path id="bar_4" d="M 240,105 L 240,38 Q 240,33 245,33 L 263,33 Q 268,33 268,38 L 268,105 Z" class="bar"/>
+            <path id="bar_4" d="M 240,105 L 240,82 Q 240,77 245,77 L 263,77 Q 268,77 268,82 L 268,105 Z" class="bar"/>
             <text x="254" y="120" class="day-label">Fri</text>
 
             <!-- Bar 5 (Sat) -->
-            <path id="bar_5" d="M 295,105 L 295,82 Q 295,77 300,77 L 318,77 Q 323,77 323,82 L 323,105 Z" class="bar"/>
+            <path id="bar_5" d="M 295,105 L 295,104 Q 295,99 300,99 L 318,99 Q 323,99 323,104 L 323,105 Z" class="bar"/>
             <text x="309" y="120" class="day-label">Sat</text>
 
             <!-- Bar 6 (Sun) -->
@@ -193,7 +193,7 @@
     </g>
 
     <!-- Hidden elements for today.py compatibility -->
-    <text id="age_data" display="none">23 years, 6 months, 21 days</text>
+    <text id="age_data" display="none">23 years, 6 months, 22 days</text>
     <text id="age_data_dots" display="none"> . </text>
     <text id="commit_data_dots" display="none"> . </text>
     <text id="rank_data_dots" display="none"> . </text>
