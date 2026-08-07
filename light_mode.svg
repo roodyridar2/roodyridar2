@@ -61,7 +61,7 @@
     <g transform="translate(256, 130)">
         <rect width="216" height="88" rx="12" class="card"/>
         <text x="20" y="30" class="label">Contributions</text>
-        <text x="20" y="66" id="contrib_data" class="val-accent">3,568</text>
+        <text x="20" y="66" id="contrib_data" class="val-accent">3,576</text>
     </g>
 
     <!-- 3. Current Streak -->
@@ -138,23 +138,23 @@
             <line x1="0" y1="105" x2="400" y2="105" stroke="#CBD5E1"/>
 
             <!-- Bar 0 (Mon) -->
-            <path id="bar_0" d="M 20,105 L 20,96 Q 20,91 25,91 L 43,91 Q 48,91 48,96 L 48,105 Z" class="bar"/>
+            <path id="bar_0" d="M 20,105 L 20,35 Q 20,30 25,30 L 43,30 Q 48,30 48,35 L 48,105 Z" class="bar"/>
             <text x="34" y="120" class="day-label">Mon</text>
 
             <!-- Bar 1 (Tue) -->
-            <path id="bar_1" d="M 75,105 L 75,35 Q 75,30 80,30 L 98,30 Q 103,30 103,35 L 103,105 Z" class="bar"/>
+            <path id="bar_1" d="M 75,105 L 75,38 Q 75,33 80,33 L 98,33 Q 103,33 103,38 L 103,105 Z" class="bar"/>
             <text x="89" y="120" class="day-label">Tue</text>
 
             <!-- Bar 2 (Wed) -->
-            <path id="bar_2" d="M 130,105 L 130,38 Q 130,33 135,33 L 153,33 Q 158,33 158,38 L 158,105 Z" class="bar-active"/>
+            <path id="bar_2" d="M 130,105 L 130,82 Q 130,77 135,77 L 153,77 Q 158,77 158,82 L 158,105 Z" class="bar-active"/>
             <text x="144" y="120" class="day-label">Wed</text>
 
             <!-- Bar 3 (Thu) -->
-            <path id="bar_3" d="M 185,105 L 185,82 Q 185,77 190,77 L 208,77 Q 213,77 213,82 L 213,105 Z" class="bar"/>
+            <path id="bar_3" d="M 185,105 L 185,104 Q 185,99 190,99 L 208,99 Q 213,99 213,104 L 213,105 Z" class="bar"/>
             <text x="199" y="120" class="day-label">Thu</text>
 
             <!-- Bar 4 (Fri) -->
-            <path id="bar_4" d="M 240,105 L 240,104 Q 240,99 245,99 L 263,99 Q 268,99 268,104 L 268,105 Z" class="bar"/>
+            <path id="bar_4" d="M 240,105 L 240,90 Q 240,85 245,85 L 263,85 Q 268,85 268,90 L 268,105 Z" class="bar"/>
             <text x="254" y="120" class="day-label">Fri</text>
 
             <!-- Bar 5 (Sat) -->
@@ -174,15 +174,15 @@
         <!-- Lines of Code & Links -->
         <g transform="translate(20, 24)">
             <text x="0" y="14" class="label">Lines of Code</text>
-            <text x="110" y="15" id="loc_data" class="mono">7,055,064</text>
+            <text x="110" y="15" id="loc_data" class="mono">6,970,732</text>
 
-            <text x="200" y="15" id="loc_add" class="add">++ 8,026,718</text>
-            <text x="300" y="15" id="loc_del" class="del">-- 971,654</text>
+            <text x="200" y="15" id="loc_add" class="add">++ 8,027,031</text>
+            <text x="300" y="15" id="loc_del" class="del">-- 1,056,299</text>
         </g>
 
         <g transform="translate(20, 50)">
             <text x="0" y="14" class="subtitle">Total Commits:</text>
-            <text x="105" y="14" id="commit_data" class="mono">3,519</text>
+            <text x="105" y="14" id="commit_data" class="mono">3,527</text>
 
             <text x="250" y="14" class="subtitle">Followers:</text>
             <text x="320" y="14" id="follower_data" class="mono">10</text>
