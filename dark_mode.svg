@@ -54,14 +54,14 @@
     <g transform="translate(24, 130)">
         <rect width="216" height="88" rx="12" class="d-card"/>
         <text x="20" y="30" class="d-label">Repositories</text>
-        <text x="20" y="66" id="repo_data" class="d-val-num">69</text>
+        <text x="20" y="66" id="repo_data" class="d-val-num">70</text>
     </g>
 
     <!-- 2. Contributions -->
     <g transform="translate(256, 130)">
         <rect width="216" height="88" rx="12" class="d-card"/>
         <text x="20" y="30" class="d-label">Contributions</text>
-        <text x="20" y="66" id="contrib_data" class="d-val-accent">3,576</text>
+        <text x="20" y="66" id="contrib_data" class="d-val-accent">3,660</text>
     </g>
 
     <!-- 3. Current Streak -->
@@ -138,27 +138,27 @@
             <line x1="0" y1="105" x2="400" y2="105" stroke="#1E293B"/>
 
             <!-- Bar 0 (Mon) -->
-            <path id="bar_0" d="M 20,105 L 20,35 Q 20,30 25,30 L 43,30 Q 48,30 48,35 L 48,105 Z" class="d-bar"/>
+            <path id="bar_0" d="M 20,105 L 20,46 Q 20,41 25,41 L 43,41 Q 48,41 48,46 L 48,105 Z" class="d-bar"/>
             <text x="34" y="120" class="d-day-label">Mon</text>
 
             <!-- Bar 1 (Tue) -->
-            <path id="bar_1" d="M 75,105 L 75,38 Q 75,33 80,33 L 98,33 Q 103,33 103,38 L 103,105 Z" class="d-bar"/>
+            <path id="bar_1" d="M 75,105 L 75,74 Q 75,69 80,69 L 98,69 Q 103,69 103,74 L 103,105 Z" class="d-bar"/>
             <text x="89" y="120" class="d-day-label">Tue</text>
 
             <!-- Bar 2 (Wed) -->
-            <path id="bar_2" d="M 130,105 L 130,82 Q 130,77 135,77 L 153,77 Q 158,77 158,82 L 158,105 Z" class="d-bar-active"/>
+            <path id="bar_2" d="M 130,105 L 130,35 Q 130,30 135,30 L 153,30 Q 158,30 158,35 L 158,105 Z" class="d-bar-active"/>
             <text x="144" y="120" class="d-day-label">Wed</text>
 
             <!-- Bar 3 (Thu) -->
-            <path id="bar_3" d="M 185,105 L 185,104 Q 185,99 190,99 L 208,99 Q 213,99 213,104 L 213,105 Z" class="d-bar"/>
+            <path id="bar_3" d="M 185,105 L 185,41 Q 185,36 190,36 L 208,36 Q 213,36 213,41 L 213,105 Z" class="d-bar"/>
             <text x="199" y="120" class="d-day-label">Thu</text>
 
             <!-- Bar 4 (Fri) -->
-            <path id="bar_4" d="M 240,105 L 240,90 Q 240,85 245,85 L 263,85 Q 268,85 268,90 L 268,105 Z" class="d-bar"/>
+            <path id="bar_4" d="M 240,105 L 240,48 Q 240,43 245,43 L 263,43 Q 268,43 268,48 L 268,105 Z" class="d-bar"/>
             <text x="254" y="120" class="d-day-label">Fri</text>
 
             <!-- Bar 5 (Sat) -->
-            <path id="bar_5" d="M 295,105 L 295,90 Q 295,85 300,85 L 318,85 Q 323,85 323,90 L 323,105 Z" class="d-bar"/>
+            <path id="bar_5" d="M 295,105 L 295,74 Q 295,69 300,69 L 318,69 Q 323,69 323,74 L 323,105 Z" class="d-bar"/>
             <text x="309" y="120" class="d-day-label">Sat</text>
 
             <!-- Bar 6 (Sun) -->
@@ -174,15 +174,15 @@
         <!-- Lines of Code & Links -->
         <g transform="translate(20, 24)">
             <text x="0" y="14" class="d-label">Lines of Code</text>
-            <text x="110" y="15" id="loc_data" class="d-mono">6,970,732</text>
+            <text x="110" y="15" id="loc_data" class="d-mono">7,040,986</text>
 
-            <text x="200" y="15" id="loc_add" class="d-add">++ 8,027,031</text>
-            <text x="300" y="15" id="loc_del" class="d-del">-- 1,056,299</text>
+            <text x="200" y="15" id="loc_add" class="d-add">++ 8,119,149</text>
+            <text x="300" y="15" id="loc_del" class="d-del">-- 1,078,163</text>
         </g>
 
         <g transform="translate(20, 50)">
             <text x="0" y="14" class="d-subtitle">Total Commits:</text>
-            <text x="105" y="14" id="commit_data" class="d-mono">3,527</text>
+            <text x="105" y="14" id="commit_data" class="d-mono">3,610</text>
 
             <text x="250" y="14" class="d-subtitle">Followers:</text>
             <text x="320" y="14" id="follower_data" class="d-mono">10</text>
@@ -193,7 +193,7 @@
     </g>
 
     <!-- Hidden elements for today.py compatibility -->
-    <text id="age_data" display="none">23 years, 6 months, 24 days</text>
+    <text id="age_data" display="none">23 years, 6 months, 25 days</text>
     <text id="age_data_dots" display="none"> . </text>
     <text id="commit_data_dots" display="none"> . </text>
     <text id="rank_data_dots" display="none"> . </text>
