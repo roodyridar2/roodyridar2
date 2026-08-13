@@ -142,23 +142,23 @@
             <text x="34" y="120" class="day-label">Mon</text>
 
             <!-- Bar 1 (Tue) -->
-            <path id="bar_1" d="M 75,105 L 75,64 Q 75,59 80,59 L 98,59 Q 103,59 103,64 L 103,105 Z" class="bar"/>
+            <path id="bar_1" d="M 75,105 L 75,60 Q 75,55 80,55 L 98,55 Q 103,55 103,60 L 103,105 Z" class="bar"/>
             <text x="89" y="120" class="day-label">Tue</text>
 
             <!-- Bar 2 (Wed) -->
-            <path id="bar_2" d="M 130,105 L 130,79 Q 130,74 135,74 L 153,74 Q 158,74 158,79 L 158,105 Z" class="bar-active"/>
+            <path id="bar_2" d="M 130,105 L 130,104 Q 130,99 135,99 L 153,99 Q 158,99 158,104 L 158,105 Z" class="bar-active"/>
             <text x="144" y="120" class="day-label">Wed</text>
 
             <!-- Bar 3 (Thu) -->
-            <path id="bar_3" d="M 185,105 L 185,104 Q 185,99 190,99 L 208,99 Q 213,99 213,104 L 213,105 Z" class="bar"/>
+            <path id="bar_3" d="M 185,105 L 185,90 Q 185,85 190,85 L 208,85 Q 213,85 213,90 L 213,105 Z" class="bar"/>
             <text x="199" y="120" class="day-label">Thu</text>
 
             <!-- Bar 4 (Fri) -->
-            <path id="bar_4" d="M 240,105 L 240,98 Q 240,93 245,93 L 263,93 Q 268,93 268,98 L 268,105 Z" class="bar"/>
+            <path id="bar_4" d="M 240,105 L 240,35 Q 240,30 245,30 L 263,30 Q 268,30 268,35 L 268,105 Z" class="bar"/>
             <text x="254" y="120" class="day-label">Fri</text>
 
             <!-- Bar 5 (Sat) -->
-            <path id="bar_5" d="M 295,105 L 295,64 Q 295,59 300,59 L 318,59 Q 323,59 323,64 L 323,105 Z" class="bar"/>
+            <path id="bar_5" d="M 295,105 L 295,104 Q 295,99 300,99 L 318,99 Q 323,99 323,104 L 323,105 Z" class="bar"/>
             <text x="309" y="120" class="day-label">Sat</text>
 
             <!-- Bar 6 (Sun) -->
@@ -193,7 +193,7 @@
     </g>
 
     <!-- Hidden elements for today.py compatibility -->
-    <text id="age_data" display="none">23 years, 6 months, 29 days</text>
+    <text id="age_data" display="none">23 years, 6 months, 30 days</text>
     <text id="age_data_dots" display="none"> . </text>
     <text id="commit_data_dots" display="none"> . </text>
     <text id="rank_data_dots" display="none"> . </text>
