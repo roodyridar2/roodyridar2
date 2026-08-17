@@ -138,11 +138,11 @@
             <line x1="0" y1="105" x2="400" y2="105" stroke="#1E293B"/>
 
             <!-- Bar 0 (Mon) -->
-            <path id="bar_0" d="M 20,105 L 20,90 Q 20,85 25,85 L 43,85 Q 48,85 48,90 L 48,105 Z" class="d-bar"/>
+            <path id="bar_0" d="M 20,105 L 20,35 Q 20,30 25,30 L 43,30 Q 48,30 48,35 L 48,105 Z" class="d-bar"/>
             <text x="34" y="120" class="d-day-label">Mon</text>
 
             <!-- Bar 1 (Tue) -->
-            <path id="bar_1" d="M 75,105 L 75,35 Q 75,30 80,30 L 98,30 Q 103,30 103,35 L 103,105 Z" class="d-bar"/>
+            <path id="bar_1" d="M 75,105 L 75,104 Q 75,99 80,99 L 98,99 Q 103,99 103,104 L 103,105 Z" class="d-bar"/>
             <text x="89" y="120" class="d-day-label">Tue</text>
 
             <!-- Bar 2 (Wed) -->
@@ -193,7 +193,7 @@
     </g>
 
     <!-- Hidden elements for today.py compatibility -->
-    <text id="age_data" display="none">23 years, 7 months, 2 days</text>
+    <text id="age_data" display="none">23 years, 7 months, 3 days</text>
     <text id="age_data_dots" display="none"> . </text>
     <text id="commit_data_dots" display="none"> . </text>
     <text id="rank_data_dots" display="none"> . </text>
