@@ -138,27 +138,27 @@
             <line x1="0" y1="105" x2="400" y2="105" stroke="#1E293B"/>
 
             <!-- Bar 0 (Mon) -->
-            <path id="bar_0" d="M 20,105 L 20,98 Q 20,93 25,93 L 43,93 Q 48,93 48,98 L 48,105 Z" class="d-bar"/>
+            <path id="bar_0" d="M 20,105 L 20,62 Q 20,57 25,57 L 43,57 Q 48,57 48,62 L 48,105 Z" class="d-bar"/>
             <text x="34" y="120" class="d-day-label">Mon</text>
 
             <!-- Bar 1 (Tue) -->
-            <path id="bar_1" d="M 75,105 L 75,62 Q 75,57 80,57 L 98,57 Q 103,57 103,62 L 103,105 Z" class="d-bar"/>
+            <path id="bar_1" d="M 75,105 L 75,35 Q 75,30 80,30 L 98,30 Q 103,30 103,35 L 103,105 Z" class="d-bar"/>
             <text x="89" y="120" class="d-day-label">Tue</text>
 
             <!-- Bar 2 (Wed) -->
-            <path id="bar_2" d="M 130,105 L 130,35 Q 130,30 135,30 L 153,30 Q 158,30 158,35 L 158,105 Z" class="d-bar-active"/>
+            <path id="bar_2" d="M 130,105 L 130,38 Q 130,33 135,33 L 153,33 Q 158,33 158,38 L 158,105 Z" class="d-bar-active"/>
             <text x="144" y="120" class="d-day-label">Wed</text>
 
             <!-- Bar 3 (Thu) -->
-            <path id="bar_3" d="M 185,105 L 185,38 Q 185,33 190,33 L 208,33 Q 213,33 213,38 L 213,105 Z" class="d-bar"/>
+            <path id="bar_3" d="M 185,105 L 185,92 Q 185,87 190,87 L 208,87 Q 213,87 213,92 L 213,105 Z" class="d-bar"/>
             <text x="199" y="120" class="d-day-label">Thu</text>
 
             <!-- Bar 4 (Fri) -->
-            <path id="bar_4" d="M 240,105 L 240,92 Q 240,87 245,87 L 263,87 Q 268,87 268,92 L 268,105 Z" class="d-bar"/>
+            <path id="bar_4" d="M 240,105 L 240,65 Q 240,60 245,60 L 263,60 Q 268,60 268,65 L 268,105 Z" class="d-bar"/>
             <text x="254" y="120" class="d-day-label">Fri</text>
 
             <!-- Bar 5 (Sat) -->
-            <path id="bar_5" d="M 295,105 L 295,65 Q 295,60 300,60 L 318,60 Q 323,60 323,65 L 323,105 Z" class="d-bar"/>
+            <path id="bar_5" d="M 295,105 L 295,104 Q 295,99 300,99 L 318,99 Q 323,99 323,104 L 323,105 Z" class="d-bar"/>
             <text x="309" y="120" class="d-day-label">Sat</text>
 
             <!-- Bar 6 (Sun) -->
@@ -193,7 +193,7 @@
     </g>
 
     <!-- Hidden elements for today.py compatibility -->
-    <text id="age_data" display="none">23 years, 7 months, 13 days</text>
+    <text id="age_data" display="none">23 years, 7 months, 14 days</text>
     <text id="age_data_dots" display="none"> . </text>
     <text id="commit_data_dots" display="none"> . </text>
     <text id="rank_data_dots" display="none"> . </text>
