@@ -54,14 +54,14 @@
     <g transform="translate(24, 130)">
         <rect width="216" height="88" rx="12" class="card"/>
         <text x="20" y="30" class="label">Repositories</text>
-        <text x="20" y="66" id="repo_data" class="val-num">77</text>
+        <text x="20" y="66" id="repo_data" class="val-num">72</text>
     </g>
 
     <!-- 2. Contributions -->
     <g transform="translate(256, 130)">
         <rect width="216" height="88" rx="12" class="card"/>
         <text x="20" y="30" class="label">Contributions</text>
-        <text x="20" y="66" id="contrib_data" class="val-accent">3,749</text>
+        <text x="20" y="66" id="contrib_data" class="val-accent">3,720</text>
     </g>
 
     <!-- 3. Current Streak -->
@@ -142,15 +142,15 @@
             <text x="34" y="120" class="day-label">Mon</text>
 
             <!-- Bar 1 (Tue) -->
-            <path id="bar_1" d="M 75,105 L 75,38 Q 75,33 80,33 L 98,33 Q 103,33 103,38 L 103,105 Z" class="bar"/>
+            <path id="bar_1" d="M 75,105 L 75,84 Q 75,79 80,79 L 98,79 Q 103,79 103,84 L 103,105 Z" class="bar"/>
             <text x="89" y="120" class="day-label">Tue</text>
 
             <!-- Bar 2 (Wed) -->
-            <path id="bar_2" d="M 130,105 L 130,92 Q 130,87 135,87 L 153,87 Q 158,87 158,92 L 158,105 Z" class="bar-active"/>
+            <path id="bar_2" d="M 130,105 L 130,44 Q 130,39 135,39 L 153,39 Q 158,39 158,44 L 158,105 Z" class="bar-active"/>
             <text x="144" y="120" class="day-label">Wed</text>
 
             <!-- Bar 3 (Thu) -->
-            <path id="bar_3" d="M 185,105 L 185,65 Q 185,60 190,60 L 208,60 Q 213,60 213,65 L 213,105 Z" class="bar"/>
+            <path id="bar_3" d="M 185,105 L 185,104 Q 185,99 190,99 L 208,99 Q 213,99 213,104 L 213,105 Z" class="bar"/>
             <text x="199" y="120" class="day-label">Thu</text>
 
             <!-- Bar 4 (Fri) -->
@@ -174,15 +174,15 @@
         <!-- Lines of Code & Links -->
         <g transform="translate(20, 24)">
             <text x="0" y="14" class="label">Lines of Code</text>
-            <text x="110" y="15" id="loc_data" class="mono">7,618,778</text>
+            <text x="110" y="15" id="loc_data" class="mono">7,540,308</text>
 
-            <text x="200" y="15" id="loc_add" class="add">++ 8,774,755</text>
-            <text x="300" y="15" id="loc_del" class="del">-- 1,155,977</text>
+            <text x="200" y="15" id="loc_add" class="add">++ 8,680,396</text>
+            <text x="300" y="15" id="loc_del" class="del">-- 1,140,088</text>
         </g>
 
         <g transform="translate(20, 50)">
             <text x="0" y="14" class="subtitle">Total Commits:</text>
-            <text x="105" y="14" id="commit_data" class="mono">3,695</text>
+            <text x="105" y="14" id="commit_data" class="mono">3,671</text>
 
             <text x="250" y="14" class="subtitle">Followers:</text>
             <text x="320" y="14" id="follower_data" class="mono">10</text>
