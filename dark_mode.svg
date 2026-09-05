@@ -44,6 +44,16 @@
             <stop offset="0%" stop-color="#89B4FA"/>
             <stop offset="100%" stop-color="#CBA6F7"/>
         </linearGradient>
+
+        <clipPath id="leftWindowClip">
+            <rect width="459" height="468" rx="10"/>
+        </clipPath>
+        <clipPath id="rightTopClip">
+            <rect width="459" height="227" rx="10"/>
+        </clipPath>
+        <clipPath id="rightBottomClip">
+            <rect width="459" height="227" rx="10"/>
+        </clipPath>
     </defs>
 
     <!-- Canvas Background -->
@@ -52,7 +62,7 @@
 
     <!-- ================= TOP STATUS BAR (WAYBAR) ================= -->
     <!-- Left Module: Workspaces -->
-    <g transform="translate(14, 12)">
+    <g transform="translate(14, 14)">
         <rect width="240" height="30" rx="6" fill="#181825" stroke="#313244" stroke-width="1"/>
         <rect x="4" y="4" width="52" height="22" rx="4" fill="#CBA6F7"/>
         <text x="30" y="19" font-size="11" font-weight="700" fill="#11111B" text-anchor="middle">1:dev</text>
@@ -62,7 +72,7 @@
     </g>
 
     <!-- Center Module: Host & Distro -->
-    <g transform="translate(268, 12)">
+    <g transform="translate(268, 14)">
         <rect width="396" height="30" rx="6" fill="#181825" stroke="#313244" stroke-width="1"/>
         <text x="198" y="19" font-size="11" font-weight="600" class="c-txt-main" text-anchor="middle">
             <tspan fill="#89B4FA">λ</tspan> archlinux <tspan fill="#6C7086">•</tspan> roody@arch:~ <tspan fill="#CBA6F7">(hyprland)</tspan>
@@ -70,7 +80,7 @@
     </g>
 
     <!-- Right Module: Rank & System Pill -->
-    <g transform="translate(678, 12)">
+    <g transform="translate(678, 14)">
         <rect width="268" height="30" rx="6" fill="#181825" stroke="#313244" stroke-width="1"/>
         <text x="16" y="19" font-size="11" font-weight="700" fill="#F9E2AF">★ #26 Kurdistan</text>
         <text x="142" y="19" font-size="11" font-weight="600" class="c-txt-muted">|</text>
@@ -82,200 +92,217 @@
     <!-- ================= MAIN DESKTOP AREA ================= -->
 
     <!-- LEFT WINDOW: TERMINAL (fastfetch & stack.json) -->
-    <g transform="translate(14, 52)">
-        <!-- Active Hyprland Border -->
-        <rect width="458" height="474" rx="10" fill="#181825" stroke="url(#hyprBorder)" stroke-width="1.5"/>
-        
-        <!-- Window Titlebar -->
-        <path d="M 0,10 Q 0,0 10,0 L 448,0 Q 458,0 458,10 L 458,30 L 0,30 Z" fill="#11111B"/>
-        <line x1="0" y1="30" x2="458" y2="30" stroke="#313244" stroke-width="1"/>
-        
-        <!-- Controls -->
-        <circle cx="16" cy="15" r="4.5" fill="#F38BA8"/>
-        <circle cx="30" cy="15" r="4.5" fill="#F9E2AF"/>
-        <circle cx="44" cy="15" r="4.5" fill="#A6E3A1"/>
-        <text x="60" y="19" font-size="11" font-weight="600" class="c-txt-sub">kitty ~ roody@arch: ~/profile</text>
-        <rect x="396" y="6" width="50" height="18" rx="3" fill="rgba(166, 227, 161, 0.15)"/>
-        <text x="421" y="19" font-size="9" font-weight="700" fill="#A6E3A1" text-anchor="middle">active</text>
+    <g transform="translate(14, 58)">
+        <!-- Background Fill -->
+        <rect width="459" height="468" rx="10" fill="#181825"/>
 
-        <!-- Command 1: fastfetch -->
-        <text x="16" y="54" font-size="12" font-weight="700" fill="#CDD6F4">
-            <tspan fill="#A6E3A1">roody@arch</tspan><tspan fill="#6C7086">:</tspan><tspan fill="#89B4FA">~</tspan><tspan fill="#CBA6F7">$</tspan> fastfetch
-        </text>
+        <!-- Content Clipped to Rounded Rectangle -->
+        <g clip-path="url(#leftWindowClip)">
+            <!-- Window Titlebar -->
+            <rect width="459" height="30" fill="#11111B"/>
+            <line x1="0" y1="30" x2="459" y2="30" stroke="#313244" stroke-width="1"/>
+            
+            <!-- Controls -->
+            <circle cx="16" cy="15" r="4.5" fill="#F38BA8"/>
+            <circle cx="30" cy="15" r="4.5" fill="#F9E2AF"/>
+            <circle cx="44" cy="15" r="4.5" fill="#A6E3A1"/>
+            <text x="60" y="19" font-size="11" font-weight="600" class="c-txt-sub">kitty ~ roody@arch: ~/profile</text>
+            <rect x="397" y="6" width="50" height="18" rx="3" fill="rgba(166, 227, 161, 0.15)"/>
+            <text x="422" y="19" font-size="9" font-weight="700" fill="#A6E3A1" text-anchor="middle">active</text>
 
-        <!-- Vector Arch Logo -->
-        <g transform="translate(16, 70)">
-            <path d="M 40,8 L 10,76 C 21,70 30,66 40,66 C 35,55 33,43 35,33 C 38,41 42,50 49,58 C 55,57 61,58 69,61 L 40,8 Z M 40,72 C 34,72 26,75 16,79 C 27,82 36,84 44,84 C 51,84 58,82 67,78 C 58,74 49,72 40,72 Z" fill="url(#archGrad)"/>
-        </g>
+            <!-- Command 1: fastfetch -->
+            <text x="16" y="54" font-size="12" font-weight="700" fill="#CDD6F4">
+                <tspan fill="#A6E3A1">roody@arch</tspan><tspan fill="#6C7086">:</tspan><tspan fill="#89B4FA">~</tspan><tspan fill="#CBA6F7">$</tspan> fastfetch
+            </text>
 
-        <!-- Fastfetch Info Lines -->
-        <g transform="translate(112, 74)">
-            <text x="0" y="12" font-size="13" font-weight="700" fill="#CBA6F7">roody@archlinux</text>
-            <line x1="0" y1="19" x2="326" y2="19" stroke="#313244" stroke-width="1"/>
+            <!-- Vector Arch Logo -->
+            <g transform="translate(16, 70)">
+                <path d="M 40,8 L 10,76 C 21,70 30,66 40,66 C 35,55 33,43 35,33 C 38,41 42,50 49,58 C 55,57 61,58 69,61 L 40,8 Z M 40,72 C 34,72 26,75 16,79 C 27,82 36,84 44,84 C 51,84 58,82 67,78 C 58,74 49,72 40,72 Z" fill="url(#archGrad)"/>
+            </g>
 
-            <text x="0" y="36" font-size="11" font-weight="600" class="c-txt-peach">user     <tspan class="c-txt-main" font-weight="500">Ayub Mahmood</tspan></text>
-            <text x="0" y="54" font-size="11" font-weight="600" class="c-txt-yellow">role     <tspan class="c-txt-main" font-weight="500">Software Engineer @ Otee</tspan></text>
-            <text x="0" y="72" font-size="11" font-weight="600" class="c-txt-teal">loc      <tspan class="c-txt-main" font-weight="500">Erbil, Kurdistan</tspan></text>
-            <text x="0" y="90" font-size="11" font-weight="600" class="c-txt-blue">wm       <tspan class="c-txt-main" font-weight="500">Hyprland (Wayland)</tspan></text>
-            <text x="0" y="108" font-size="11" font-weight="600" class="c-txt-mauve">shell    <tspan class="c-txt-main" font-weight="500">zsh 5.9 (kitty)</tspan></text>
-            <text x="0" y="126" font-size="11" font-weight="600" class="c-txt-green">uptime   <tspan id="age_data" class="c-txt-green" font-weight="600">23 years, 7 months, 22 days</tspan></text>
+            <!-- Fastfetch Info Lines -->
+            <g transform="translate(112, 74)">
+                <text x="0" y="12" font-size="13" font-weight="700" fill="#CBA6F7">roody@archlinux</text>
+                <line x1="0" y1="19" x2="326" y2="19" stroke="#313244" stroke-width="1"/>
 
-            <!-- Color Palette Row -->
-            <g transform="translate(0, 138)">
-                <rect x="0" width="18" height="9" rx="2" fill="#F38BA8"/>
-                <rect x="22" width="18" height="9" rx="2" fill="#FAB387"/>
-                <rect x="44" width="18" height="9" rx="2" fill="#F9E2AF"/>
-                <rect x="66" width="18" height="9" rx="2" fill="#A6E3A1"/>
-                <rect x="88" width="18" height="9" rx="2" fill="#94E2D5"/>
-                <rect x="110" width="18" height="9" rx="2" fill="#89B4FA"/>
-                <rect x="132" width="18" height="9" rx="2" fill="#CBA6F7"/>
-                <rect x="154" width="18" height="9" rx="2" fill="#CDD6F4"/>
+                <text x="0" y="36" font-size="11" font-weight="600" class="c-txt-peach">user     <tspan class="c-txt-main" font-weight="500">Ayub Mahmood</tspan></text>
+                <text x="0" y="54" font-size="11" font-weight="600" class="c-txt-yellow">role     <tspan class="c-txt-main" font-weight="500">Software Engineer @ Otee</tspan></text>
+                <text x="0" y="72" font-size="11" font-weight="600" class="c-txt-teal">loc      <tspan class="c-txt-main" font-weight="500">Erbil, Kurdistan</tspan></text>
+                <text x="0" y="90" font-size="11" font-weight="600" class="c-txt-blue">wm       <tspan class="c-txt-main" font-weight="500">Hyprland (Wayland)</tspan></text>
+                <text x="0" y="108" font-size="11" font-weight="600" class="c-txt-mauve">shell    <tspan class="c-txt-main" font-weight="500">zsh 5.9 (kitty)</tspan></text>
+                <text x="0" y="126" font-size="11" font-weight="600" class="c-txt-green">uptime   <tspan id="age_data" class="c-txt-green" font-weight="600">23 years, 7 months, 22 days</tspan></text>
+
+                <!-- Color Palette Row -->
+                <g transform="translate(0, 138)">
+                    <rect x="0" width="18" height="9" rx="2" fill="#F38BA8"/>
+                    <rect x="22" width="18" height="9" rx="2" fill="#FAB387"/>
+                    <rect x="44" width="18" height="9" rx="2" fill="#F9E2AF"/>
+                    <rect x="66" width="18" height="9" rx="2" fill="#A6E3A1"/>
+                    <rect x="88" width="18" height="9" rx="2" fill="#94E2D5"/>
+                    <rect x="110" width="18" height="9" rx="2" fill="#89B4FA"/>
+                    <rect x="132" width="18" height="9" rx="2" fill="#CBA6F7"/>
+                    <rect x="154" width="18" height="9" rx="2" fill="#CDD6F4"/>
+                </g>
+            </g>
+
+            <!-- Command 2: cat ~/.config/skills.json -->
+            <line x1="16" y1="238" x2="443" y2="238" stroke="#313244" stroke-dasharray="3,3"/>
+            <text x="16" y="258" font-size="12" font-weight="700" fill="#CDD6F4">
+                <tspan fill="#A6E3A1">roody@arch</tspan><tspan fill="#6C7086">:</tspan><tspan fill="#89B4FA">~</tspan><tspan fill="#CBA6F7">$</tspan> cat ~/.config/stack.json
+            </text>
+
+            <!-- JSON Code Preview Card -->
+            <g transform="translate(16, 270)">
+                <rect width="427" height="154" rx="6" fill="#11111B" stroke="#313244" stroke-width="1"/>
+                <text x="16" y="24" font-size="11" class="c-txt-muted">{</text>
+                
+                <text x="28" y="44" font-size="11" class="c-txt-blue">"frontend"<tspan class="c-txt-muted">: [</tspan><tspan class="c-txt-green">"Flutter"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"React"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"TypeScript"</tspan><tspan class="c-txt-muted">],</tspan></text>
+                
+                <text x="28" y="66" font-size="11" class="c-txt-blue">"backend" <tspan class="c-txt-muted">: [</tspan><tspan class="c-txt-green">"Node.js"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"Docker"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"PostgreSQL"</tspan><tspan class="c-txt-muted">],</tspan></text>
+                
+                <text x="28" y="88" font-size="11" class="c-txt-blue">"languages"<tspan class="c-txt-muted">: [</tspan><tspan class="c-txt-green">"Python"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"Dart"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"SQL"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"Bash"</tspan><tspan class="c-txt-muted">],</tspan></text>
+                
+                <text x="28" y="110" font-size="11" class="c-txt-blue">"ricing"   <tspan class="c-txt-muted">: [</tspan><tspan class="c-txt-peach">"Hyprland"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-peach">"Waybar"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-peach">"Catppuccin"</tspan><tspan class="c-txt-muted">]</tspan></text>
+                
+                <text x="16" y="132" font-size="11" class="c-txt-muted">}</text>
+            </g>
+
+            <!-- Neovim Style Statusline -->
+            <g transform="translate(0, 440)">
+                <rect width="459" height="28" fill="#11111B"/>
+                <line x1="0" y1="0" x2="459" y2="0" stroke="#313244" stroke-width="1"/>
+                <rect x="8" y="5" width="62" height="18" rx="3" fill="#CBA6F7"/>
+                <text x="39" y="18" font-size="9" font-weight="800" fill="#11111B" text-anchor="middle">NORMAL</text>
+                <text x="80" y="18" font-size="10" font-weight="600" class="c-txt-main">stack.json</text>
+                <text x="380" y="18" font-size="10" font-weight="600" class="c-txt-muted">utf-8 | 100%</text>
             </g>
         </g>
 
-        <!-- Command 2: cat ~/.config/skills.json -->
-        <line x1="16" y1="242" x2="442" y2="242" stroke="#313244" stroke-dasharray="3,3"/>
-        <text x="16" y="264" font-size="12" font-weight="700" fill="#CDD6F4">
-            <tspan fill="#A6E3A1">roody@arch</tspan><tspan fill="#6C7086">:</tspan><tspan fill="#89B4FA">~</tspan><tspan fill="#CBA6F7">$</tspan> cat ~/.config/stack.json
-        </text>
-
-        <!-- JSON Code Preview Card -->
-        <g transform="translate(16, 276)">
-            <rect width="426" height="154" rx="6" fill="#11111B" stroke="#313244" stroke-width="1"/>
-            <text x="16" y="24" font-size="11" class="c-txt-muted">{</text>
-            
-            <text x="28" y="44" font-size="11" class="c-txt-blue">"frontend"<tspan class="c-txt-muted">: [</tspan><tspan class="c-txt-green">"Flutter"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"React"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"TypeScript"</tspan><tspan class="c-txt-muted">],</tspan></text>
-            
-            <text x="28" y="66" font-size="11" class="c-txt-blue">"backend" <tspan class="c-txt-muted">: [</tspan><tspan class="c-txt-green">"Node.js"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"Docker"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"PostgreSQL"</tspan><tspan class="c-txt-muted">],</tspan></text>
-            
-            <text x="28" y="88" font-size="11" class="c-txt-blue">"languages"<tspan class="c-txt-muted">: [</tspan><tspan class="c-txt-green">"Python"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"Dart"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"SQL"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"Bash"</tspan><tspan class="c-txt-muted">],</tspan></text>
-            
-            <text x="28" y="110" font-size="11" class="c-txt-blue">"ricing"   <tspan class="c-txt-muted">: [</tspan><tspan class="c-txt-peach">"Hyprland"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-peach">"Waybar"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-peach">"Catppuccin"</tspan><tspan class="c-txt-muted">]</tspan></text>
-            
-            <text x="16" y="132" font-size="11" class="c-txt-muted">}</text>
-        </g>
-
-        <!-- Neovim Style Statusline -->
-        <g transform="translate(0, 446)">
-            <path d="M 0,0 L 458,0 L 458,18 Q 458,28 448,28 L 10,28 Q 0,28 0,18 Z" fill="#11111B"/>
-            <rect x="8" y="5" width="62" height="18" rx="3" fill="#CBA6F7"/>
-            <text x="39" y="18" font-size="9" font-weight="800" fill="#11111B" text-anchor="middle">NORMAL</text>
-            <text x="80" y="18" font-size="10" font-weight="600" class="c-txt-main">stack.json</text>
-            <text x="380" y="18" font-size="10" font-weight="600" class="c-txt-muted">utf-8 | 100%</text>
-        </g>
+        <!-- Active Hyprland Border (Drawn ON TOP of all content for 100% uniform thickness on all 4 sides) -->
+        <rect x="1" y="1" width="457" height="466" rx="9" fill="none" stroke="url(#hyprBorder)" stroke-width="2"/>
     </g>
 
     <!-- ================= RIGHT COLUMN ================= -->
 
     <!-- TOP RIGHT: GIT STATS RADAR -->
-    <g transform="translate(486, 52)">
-        <rect width="460" height="224" rx="10" fill="#181825" stroke="#313244" stroke-width="1"/>
-        
-        <!-- Header / Titlebar -->
-        <path d="M 0,10 Q 0,0 10,0 L 450,0 Q 460,0 460,10 L 460,30 L 0,30 Z" fill="#11111B"/>
-        <line x1="0" y1="30" x2="460" y2="30" stroke="#313244" stroke-width="1"/>
-        <circle cx="16" cy="15" r="4.5" fill="#F38BA8"/>
-        <circle cx="30" cy="15" r="4.5" fill="#F9E2AF"/>
-        <circle cx="44" cy="15" r="4.5" fill="#A6E3A1"/>
-        <text x="60" y="19" font-size="11" font-weight="600" class="c-txt-sub">git-radar ~ metrics</text>
-        <rect x="396" y="6" width="50" height="18" rx="3" fill="rgba(137, 180, 250, 0.15)"/>
-        <text x="421" y="19" font-size="9" font-weight="700" fill="#89B4FA" text-anchor="middle">master</text>
+    <g transform="translate(487, 58)">
+        <rect width="459" height="227" rx="10" fill="#181825"/>
 
-        <!-- 2x2 Metric Grid -->
-        <!-- Card 1: Streak -->
-        <g transform="translate(16, 42)">
-            <rect width="206" height="78" rx="6" fill="#1E1E2E" stroke="#313244" stroke-width="1"/>
-            <text x="20" y="24" class="d-label">CURRENT STREAK</text>
-            <text x="20" y="60" id="streak_data" class="d-val-green">8</text>
-            <text x="45" y="58" id="streak_unit" class="d-body">days ⚡</text>
+        <g clip-path="url(#rightTopClip)">
+            <!-- Header / Titlebar -->
+            <rect width="459" height="30" fill="#11111B"/>
+            <line x1="0" y1="30" x2="459" y2="30" stroke="#313244" stroke-width="1"/>
+            <circle cx="16" cy="15" r="4.5" fill="#F38BA8"/>
+            <circle cx="30" cy="15" r="4.5" fill="#F9E2AF"/>
+            <circle cx="44" cy="15" r="4.5" fill="#A6E3A1"/>
+            <text x="60" y="19" font-size="11" font-weight="600" class="c-txt-sub">git-radar ~ metrics</text>
+            <rect x="397" y="6" width="50" height="18" rx="3" fill="rgba(137, 180, 250, 0.15)"/>
+            <text x="422" y="19" font-size="9" font-weight="700" fill="#89B4FA" text-anchor="middle">master</text>
+
+            <!-- 2x2 Metric Grid -->
+            <!-- Card 1: Streak -->
+            <g transform="translate(14, 40)">
+                <rect width="209" height="83" rx="6" fill="#1E1E2E" stroke="#313244" stroke-width="1"/>
+                <text x="20" y="24" class="d-label">CURRENT STREAK</text>
+                <text x="20" y="62" id="streak_data" class="d-val-green">8</text>
+                <text x="45" y="60" id="streak_unit" class="d-body">days ⚡</text>
+            </g>
+
+            <!-- Card 2: Rank -->
+            <g transform="translate(236, 40)">
+                <rect width="209" height="83" rx="6" fill="#1E1E2E" stroke="#313244" stroke-width="1"/>
+                <text x="20" y="24" class="d-label">REGIONAL RANK</text>
+                <text x="20" y="62" id="rank_data" class="d-val-purple">#26</text>
+                <text x="80" y="60" class="d-body">Kurdistan</text>
+            </g>
+
+            <!-- Card 3: Repositories -->
+            <g transform="translate(14, 133)">
+                <rect width="209" height="83" rx="6" fill="#1E1E2E" stroke="#313244" stroke-width="1"/>
+                <text x="20" y="24" class="d-label">REPOSITORIES</text>
+                <text x="20" y="62" id="repo_data" class="d-val-num">73</text>
+                <text x="75" y="60" class="d-body">public</text>
+            </g>
+
+            <!-- Card 4: Contributions -->
+            <g transform="translate(236, 133)">
+                <rect width="209" height="83" rx="6" fill="#1E1E2E" stroke="#313244" stroke-width="1"/>
+                <text x="20" y="24" class="d-label">CONTRIBUTIONS</text>
+                <text x="20" y="62" id="contrib_data" class="d-val-accent">3,674</text>
+                <text x="115" y="60" class="d-body">total</text>
+            </g>
         </g>
 
-        <!-- Card 2: Rank -->
-        <g transform="translate(238, 42)">
-            <rect width="206" height="78" rx="6" fill="#1E1E2E" stroke="#313244" stroke-width="1"/>
-            <text x="20" y="24" class="d-label">REGIONAL RANK</text>
-            <text x="20" y="60" id="rank_data" class="d-val-purple">#26</text>
-            <text x="80" y="58" class="d-body">Kurdistan</text>
-        </g>
-
-        <!-- Card 3: Repositories -->
-        <g transform="translate(16, 132)">
-            <rect width="206" height="78" rx="6" fill="#1E1E2E" stroke="#313244" stroke-width="1"/>
-            <text x="20" y="24" class="d-label">REPOSITORIES</text>
-            <text x="20" y="60" id="repo_data" class="d-val-num">73</text>
-            <text x="75" y="58" class="d-body">public</text>
-        </g>
-
-        <!-- Card 4: Contributions -->
-        <g transform="translate(238, 132)">
-            <rect width="206" height="78" rx="6" fill="#1E1E2E" stroke="#313244" stroke-width="1"/>
-            <text x="20" y="24" class="d-label">CONTRIBUTIONS</text>
-            <text x="20" y="60" id="contrib_data" class="d-val-accent">3,674</text>
-            <text x="115" y="58" class="d-body">total</text>
-        </g>
+        <!-- Clean Window Border on top -->
+        <rect x="0.75" y="0.75" width="457.5" height="225.5" rx="9.5" fill="none" stroke="#313244" stroke-width="1.5"/>
     </g>
 
     <!-- BOTTOM RIGHT: ACTIVITY GRAPH & LOC (btop style) -->
-    <g transform="translate(486, 290)">
-        <rect width="460" height="236" rx="10" fill="#181825" stroke="#313244" stroke-width="1"/>
-        
-        <!-- Header / Titlebar -->
-        <path d="M 0,10 Q 0,0 10,0 L 450,0 Q 460,0 460,10 L 460,30 L 0,30 Z" fill="#11111B"/>
-        <line x1="0" y1="30" x2="460" y2="30" stroke="#313244" stroke-width="1"/>
-        <circle cx="16" cy="15" r="4.5" fill="#F38BA8"/>
-        <circle cx="30" cy="15" r="4.5" fill="#F9E2AF"/>
-        <circle cx="44" cy="15" r="4.5" fill="#A6E3A1"/>
-        <text x="60" y="19" font-size="11" font-weight="600" class="c-txt-sub">btop v1.3.2 ~ git activity</text>
-        <rect x="396" y="6" width="50" height="18" rx="3" fill="rgba(166, 227, 161, 0.15)"/>
-        <text x="421" y="19" font-size="9" font-weight="700" fill="#A6E3A1" text-anchor="middle">running</text>
+    <g transform="translate(487, 299)">
+        <rect width="459" height="227" rx="10" fill="#181825"/>
 
-        <!-- Dynamic Activity Bars Container -->
-        <g transform="translate(32, 24)">
-            <!-- Grid Lines -->
-            <line x1="0" y1="35" x2="400" y2="35" stroke="#313244" stroke-dasharray="4,4"/>
-            <line x1="0" y1="70" x2="400" y2="70" stroke="#313244" stroke-dasharray="4,4"/>
-            <line x1="0" y1="105" x2="400" y2="105" stroke="#313244"/>
+        <g clip-path="url(#rightBottomClip)">
+            <!-- Header / Titlebar -->
+            <rect width="459" height="30" fill="#11111B"/>
+            <line x1="0" y1="30" x2="459" y2="30" stroke="#313244" stroke-width="1"/>
+            <circle cx="16" cy="15" r="4.5" fill="#F38BA8"/>
+            <circle cx="30" cy="15" r="4.5" fill="#F9E2AF"/>
+            <circle cx="44" cy="15" r="4.5" fill="#A6E3A1"/>
+            <text x="60" y="19" font-size="11" font-weight="600" class="c-txt-sub">btop v1.3.2 ~ git activity</text>
+            <rect x="397" y="6" width="50" height="18" rx="3" fill="rgba(166, 227, 161, 0.15)"/>
+            <text x="422" y="19" font-size="9" font-weight="700" fill="#A6E3A1" text-anchor="middle">running</text>
 
-            <!-- Bar 0 (Mon) -->
-            <path id="bar_0" d="M 20,105 L 20,35 Q 20,30 25,30 L 43,30 Q 48,30 48,35 L 48,105 Z" class="d-bar"/>
-            <text x="34" y="120" class="d-day-label">Mon</text>
+            <!-- Dynamic Activity Bars Container -->
+            <g transform="translate(33, 20)">
+                <!-- Grid Lines -->
+                <line x1="0" y1="35" x2="400" y2="35" stroke="#313244" stroke-dasharray="4,4"/>
+                <line x1="0" y1="70" x2="400" y2="70" stroke="#313244" stroke-dasharray="4,4"/>
+                <line x1="0" y1="105" x2="400" y2="105" stroke="#313244"/>
 
-            <!-- Bar 1 (Tue) -->
-            <path id="bar_1" d="M 75,105 L 75,104 Q 75,99 80,99 L 98,99 Q 103,99 103,104 L 103,105 Z" class="d-bar"/>
-            <text x="89" y="120" class="d-day-label">Tue</text>
+                <!-- Bar 0 (Mon) -->
+                <path id="bar_0" d="M 20,105 L 20,35 Q 20,30 25,30 L 43,30 Q 48,30 48,35 L 48,105 Z" class="d-bar"/>
+                <text x="34" y="120" class="d-day-label">Mon</text>
 
-            <!-- Bar 2 (Wed) -->
-            <path id="bar_2" d="M 130,105 L 130,104 Q 130,99 135,99 L 153,99 Q 158,99 158,104 L 158,105 Z" class="d-bar-active"/>
-            <text x="144" y="120" class="d-day-label">Wed</text>
+                <!-- Bar 1 (Tue) -->
+                <path id="bar_1" d="M 75,105 L 75,104 Q 75,99 80,99 L 98,99 Q 103,99 103,104 L 103,105 Z" class="d-bar"/>
+                <text x="89" y="120" class="d-day-label">Tue</text>
 
-            <!-- Bar 3 (Thu) -->
-            <path id="bar_3" d="M 185,105 L 185,104 Q 185,99 190,99 L 208,99 Q 213,99 213,104 L 213,105 Z" class="d-bar"/>
-            <text x="199" y="120" class="d-day-label">Thu</text>
+                <!-- Bar 2 (Wed) -->
+                <path id="bar_2" d="M 130,105 L 130,104 Q 130,99 135,99 L 153,99 Q 158,99 158,104 L 158,105 Z" class="d-bar-active"/>
+                <text x="144" y="120" class="d-day-label">Wed</text>
 
-            <!-- Bar 4 (Fri) -->
-            <path id="bar_4" d="M 240,105 L 240,90 Q 240,85 245,85 L 263,85 Q 268,85 268,90 L 268,105 Z" class="d-bar"/>
-            <text x="254" y="120" class="d-day-label">Fri</text>
+                <!-- Bar 3 (Thu) -->
+                <path id="bar_3" d="M 185,105 L 185,104 Q 185,99 190,99 L 208,99 Q 213,99 213,104 L 213,105 Z" class="d-bar"/>
+                <text x="199" y="120" class="d-day-label">Thu</text>
 
-            <!-- Bar 5 (Sat) -->
-            <path id="bar_5" d="M 295,105 L 295,104 Q 295,99 300,99 L 318,99 Q 323,99 323,104 L 323,105 Z" class="d-bar"/>
-            <text x="309" y="120" class="d-day-label">Sat</text>
+                <!-- Bar 4 (Fri) -->
+                <path id="bar_4" d="M 240,105 L 240,90 Q 240,85 245,85 L 263,85 Q 268,85 268,90 L 268,105 Z" class="d-bar"/>
+                <text x="254" y="120" class="d-day-label">Fri</text>
 
-            <!-- Bar 6 (Sun) -->
-            <path id="bar_6" d="M 350,105 L 350,104 Q 350,99 355,99 L 373,99 Q 378,99 378,104 L 378,105 Z" class="d-bar"/>
-            <text x="364" y="120" class="d-day-label">Sun</text>
+                <!-- Bar 5 (Sat) -->
+                <path id="bar_5" d="M 295,105 L 295,104 Q 295,99 300,99 L 318,99 Q 323,99 323,104 L 323,105 Z" class="d-bar"/>
+                <text x="309" y="120" class="d-day-label">Sat</text>
+
+                <!-- Bar 6 (Sun) -->
+                <path id="bar_6" d="M 350,105 L 350,104 Q 350,99 355,99 L 373,99 Q 378,99 378,104 L 378,105 Z" class="d-bar"/>
+                <text x="364" y="120" class="d-day-label">Sun</text>
+            </g>
+
+            <!-- Divider & Terminal Metrics Footer -->
+            <line x1="14" y1="158" x2="445" y2="158" stroke="#313244" stroke-width="1"/>
+
+            <g transform="translate(14, 168)">
+                <text x="0" y="14" font-size="11" class="c-txt-muted">
+                    Lines of Code: <tspan id="loc_data" class="d-mono">7,543,886</tspan>  <tspan id="loc_add" class="d-add">++ 8,684,111</tspan>  <tspan id="loc_del" class="d-del">-- 1,140,225</tspan>
+                </text>
+                <text x="0" y="38" font-size="11" class="c-txt-muted">
+                    Commits: <tspan id="commit_data" class="d-mono">3,624</tspan>  •  Followers: <tspan id="follower_data" class="d-mono">10</tspan>  •  <tspan fill="#89B4FA">ayub.is-a.dev</tspan>
+                </text>
+            </g>
         </g>
 
-        <!-- Divider & Terminal Metrics Footer -->
-        <line x1="16" y1="164" x2="444" y2="164" stroke="#313244" stroke-width="1"/>
-
-        <g transform="translate(16, 174)">
-            <text x="0" y="14" font-size="11" class="c-txt-muted">
-                Lines of Code: <tspan id="loc_data" class="d-mono">7,543,886</tspan>  <tspan id="loc_add" class="d-add">++ 8,684,111</tspan>  <tspan id="loc_del" class="d-del">-- 1,140,225</tspan>
-            </text>
-            <text x="0" y="38" font-size="11" class="c-txt-muted">
-                Commits: <tspan id="commit_data" class="d-mono">3,624</tspan>  •  Followers: <tspan id="follower_data" class="d-mono">10</tspan>  •  <tspan fill="#89B4FA">ayub.is-a.dev</tspan>
-            </text>
-        </g>
+        <!-- Clean Window Border on top -->
+        <rect x="0.75" y="0.75" width="457.5" height="225.5" rx="9.5" fill="none" stroke="#313244" stroke-width="1.5"/>
     </g>
 
     <!-- Hidden compatibility elements for today.py -->
