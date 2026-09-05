@@ -68,8 +68,8 @@
     <g transform="translate(488, 130)">
         <rect width="216" height="88" rx="12" class="d-card"/>
         <text x="20" y="30" class="d-label">Current Streak</text>
-        <text x="20" y="66" id="streak_data" class="d-val-green">N/A</text>
-        <text x="70" y="64" class="d-body" font-size="12">days ⚡</text>
+        <text x="20" y="66" id="streak_data" class="d-val-green">8</text>
+        <text x="45" y="64" id="streak_unit" class="d-body" font-size="12">days ⚡</text>
     </g>
 
     <!-- 4. Regional Rank -->

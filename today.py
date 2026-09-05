@@ -37,35 +37,66 @@ def simple_request(func_name, query, variables):
     raise Exception(func_name, ' has failed with a', request.status_code, request.text, QUERY_COUNT)
 
 
-def fetch_streak(username):
+def calculate_streak_from_calendar(daily_counts):
+    """
+    Calculates the current streak from a chronological list of daily contribution counts.
+    """
+    if not daily_counts:
+        return 0
+    idx = len(daily_counts) - 1
+    # If the user has not yet contributed today, the streak remains active from yesterday
+    if idx >= 0 and daily_counts[idx] == 0:
+        idx -= 1
+    streak = 0
+    while idx >= 0 and daily_counts[idx] > 0:
+        streak += 1
+        idx -= 1
+    return streak
+
+
+def fetch_streak(username, all_days=None):
     """
     Fetches GitHub streak data.
     The API returns an SVG; we parse the 'Current Streak' value from the XML.
+    Falls back to alternative mirrors and local calendar calculation if endpoints fail.
     """
-    url = f"https://github-readme-streak-stats-vijaypur.vercel.app/?user={username}"
-    for delay in [1, 2, 4]:
-        try:
-            response = requests.get(url, timeout=15)
-            if response.status_code == 200:
-                svg_text = response.text
-                # The "Current Streak" big number is inside a <text> element
-                # that has the 'currstreak' animation style applied to it.
-                # We use a non-greedy match to find the first occurrence of the number
-                # inside a text tag specifically associated with that animation.
-                match = re.search(r"style=['\"]animation:\s*currstreak[^>]*>[\s\n]*([0-9,]+)[\s\n]*</text>", svg_text,
-                                  re.DOTALL)
+    endpoints = [
+        f"https://streak-stats.demolab.com/?user={username}",
+        f"https://github-readme-streak-stats.herokuapp.com/?user={username}",
+        f"https://github-readme-streak-stats-vijaypur.vercel.app/?user={username}",
+    ]
+    for url in endpoints:
+        for delay in [1, 2]:
+            try:
+                response = requests.get(url, timeout=10)
+                if response.status_code == 200:
+                    svg_text = response.text
+                    # The "Current Streak" big number is inside a <text> element
+                    # that has the 'currstreak' animation style applied to it.
+                    match = re.search(r"currstreak[^>]*>[\s\n]*([0-9,]+)[\s\n]*</text>", svg_text, re.DOTALL)
+                    if not match:
+                        match = re.search(r"style=['\"]animation:\s*currstreak[^>]*>[\s\n]*([0-9,]+)[\s\n]*</text>",
+                                          svg_text, re.DOTALL)
 
-                if match:
-                    return match.group(1).strip()
+                    if match:
+                        return match.group(1).strip()
+            except Exception:
+                time.sleep(delay)
+
+    # Fallback to local calculation if calendar days are available
+    if all_days:
+        try:
+            return str(calculate_streak_from_calendar(all_days))
         except Exception:
-            time.sleep(delay)
+            pass
+
     return "N/A"
 
 
 def graph_commits():
     query_count('graph_commits')
     if not ACCESS_TOKEN:
-        return 1568, 1568, [12, 25, 40, 32, 55, 28, 45]
+        return 1568, 1568, [12, 25, 40, 32, 55, 28, 45], []
     query = '''
     query($login: String!) {
         user(login: $login) {
@@ -88,12 +119,16 @@ def graph_commits():
     commit_cnt = int(cc.get('totalCommitContributions', 0))
     contrib_cnt = int(cc['contributionCalendar']['totalContributions'])
     cal = cc['contributionCalendar']
+    all_days = []
+    for week in cal.get('weeks', []):
+        for day in week.get('contributionDays', []):
+            all_days.append(day.get('contributionCount', 0))
     days = []
     for week in cal.get('weeks', [])[-4:]:
         for day in week.get('contributionDays', []):
             days.append(day.get('contributionCount', 0))
     recent_7 = days[-7:] if len(days) >= 7 else [4, 8, 15, 12, 20, 10, 18]
-    return commit_cnt, contrib_cnt, recent_7
+    return commit_cnt, contrib_cnt, recent_7, all_days
 
 
 def graph_repos_stars(count_type, owner_affiliation, cursor=None):
@@ -338,6 +373,13 @@ def svg_overwrite(filename, age_data, commit_data, streak_data, rank_data, repo_
     tree = etree.parse(filename)
     root = tree.getroot()
 
+    # If streak_data is N/A, preserve existing valid streak if present
+    streak_elem = root.find(".//*[@id='streak_data']")
+    if str(streak_data).strip() == 'N/A' and streak_elem is not None and streak_elem.text:
+        cleaned = streak_elem.text.strip().replace(',', '')
+        if cleaned.isdigit():
+            streak_data = streak_elem.text.strip()
+
     # Standard formats
     justify_format(root, 'age_data', age_data, 0)
     justify_format(root, 'repo_data', repo_data, 0)
@@ -345,6 +387,13 @@ def svg_overwrite(filename, age_data, commit_data, streak_data, rank_data, repo_
     justify_format(root, 'follower_data', follower_data, 0)
     justify_format(root, 'loc_data', loc_data[2], 0)
     justify_format(root, 'streak_data', streak_data, 0)
+
+    # Dynamically position streak unit label ("days ⚡") next to the streak number
+    streak_unit = root.find(".//*[@id='streak_unit']")
+    if streak_unit is not None:
+        streak_str = str(streak_data)
+        streak_width = len(streak_str) * 17
+        streak_unit.attrib['x'] = str(20 + streak_width + 8)
 
     # Custom Prefixes
     justify_format(root, 'commit_data', f"{commit_data:,}", 0)
@@ -444,12 +493,15 @@ if __name__ == '__main__':
     formatter('LOC (cached)', loc_time)
 
     commit_res, _ = perf_counter(graph_commits)
-    if isinstance(commit_res, tuple) and len(commit_res) == 3:
+    all_calendar_days = []
+    if isinstance(commit_res, tuple) and len(commit_res) == 4:
+        commit_cnt, contrib_cnt, daily_counts, all_calendar_days = commit_res
+    elif isinstance(commit_res, tuple) and len(commit_res) == 3:
         commit_cnt, contrib_cnt, daily_counts = commit_res
     else:
         commit_cnt, contrib_cnt, daily_counts = 1568, 1568, [12, 25, 40, 32, 55, 28, 45]
 
-    streak_data, _ = perf_counter(fetch_streak, USER_NAME)
+    streak_data, _ = perf_counter(fetch_streak, USER_NAME, all_calendar_days)
     rank_data, _ = perf_counter(committers_rank_getter, USER_NAME)
     repo_data, _ = perf_counter(graph_repos_stars, 'repos', ['OWNER'])
     follower_data, _ = perf_counter(follower_getter, USER_NAME)
