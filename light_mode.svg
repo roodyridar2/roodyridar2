@@ -1,141 +1,240 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" fill="none">
     <defs>
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&amp;display=swap');
 
-            .title { font: 700 22px 'Inter', sans-serif; fill: #0F172A; }
-            .subtitle { font: 500 13px 'Inter', sans-serif; fill: #64748B; }
-            .handle { font: 600 13px 'Inter', sans-serif; fill: #4F46E5; }
-            .label { font: 600 11px 'Inter', sans-serif; fill: #64748B; text-transform: uppercase; letter-spacing: 0.8px; }
-            .body { font: 400 13px 'Inter', sans-serif; fill: #334155; }
-            .day-label { font: 500 10px 'Inter', sans-serif; fill: #64748B; text-anchor: middle; }
-            
-            .val-num { font: 700 28px 'JetBrains Mono', monospace; fill: #0F172A; }
-            .val-accent { font: 700 28px 'JetBrains Mono', monospace; fill: #4F46E5; }
-            .val-green { font: 700 28px 'JetBrains Mono', monospace; fill: #059669; }
-            .val-purple { font: 700 28px 'JetBrains Mono', monospace; fill: #4F46E5; }
+            * { font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace; }
 
-            .chip { fill: #F1F5F9; stroke: #E2E8F0; stroke-width: 1; }
-            .chip-accent { fill: #EEF2FF; stroke: #C7D2FE; stroke-width: 1; }
-            .chip-text { font: 500 11px 'Inter', sans-serif; fill: #334155; }
-            .chip-accent-text { font: 600 11px 'Inter', sans-serif; fill: #3730A3; }
+            .c-bg { fill: #EFF1F5; }
+            .c-txt-main { fill: #4C4F69; }
+            .c-txt-sub { fill: #5C5F77; }
+            .c-txt-muted { fill: #9CA0B0; }
+            .c-txt-mauve { fill: #8839EF; }
+            .c-txt-blue { fill: #1E66F5; }
+            .c-txt-green { fill: #40A02B; }
+            .c-txt-peach { fill: #FE640B; }
+            .c-txt-red { fill: #D20F39; }
+            .c-txt-yellow { fill: #DF8E1D; }
+            .c-txt-teal { fill: #179299; }
 
-            .card { fill: #FFFFFF; stroke: #E2E8F0; stroke-width: 1; }
-            .bar { fill: #4F46E5; rx: 4; }
-            .bar-active { fill: #059669; rx: 4; }
+            .val-num { font: 700 24px 'JetBrains Mono', monospace; fill: #4C4F69; }
+            .val-accent { font: 700 24px 'JetBrains Mono', monospace; fill: #1E66F5; }
+            .val-green { font: 700 24px 'JetBrains Mono', monospace; fill: #40A02B; }
+            .val-purple { font: 700 24px 'JetBrains Mono', monospace; fill: #8839EF; }
 
-            .add { font: 700 13px 'JetBrains Mono', monospace; fill: #059669; }
-            .del { font: 700 13px 'JetBrains Mono', monospace; fill: #DC2626; }
-            .mono { font: 600 13px 'JetBrains Mono', monospace; fill: #0F172A; }
+            .label { font: 700 10px 'JetBrains Mono', monospace; fill: #9CA0B0; letter-spacing: 0.6px; }
+            .body { font: 500 12px 'JetBrains Mono', monospace; fill: #5C5F77; }
+            .day-label { font: 600 10px 'JetBrains Mono', monospace; fill: #9CA0B0; text-anchor: middle; }
+
+            .bar { fill: #1E66F5; rx: 4; }
+            .bar-active { fill: #40A02B; rx: 4; }
+
+            .add { font: 700 12px 'JetBrains Mono', monospace; fill: #40A02B; }
+            .del { font: 700 12px 'JetBrains Mono', monospace; fill: #D20F39; }
+            .mono { font: 600 12px 'JetBrains Mono', monospace; fill: #4C4F69; }
         </style>
+
+        <linearGradient id="hyprBorderLight" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#8839EF"/>
+            <stop offset="100%" stop-color="#1E66F5"/>
+        </linearGradient>
+        
+        <linearGradient id="archGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1E66F5"/>
+            <stop offset="100%" stop-color="#8839EF"/>
+        </linearGradient>
     </defs>
 
     <!-- Canvas Background -->
-    <rect width="960" height="520" rx="16" fill="#F8FAFC"/>
-    <rect x="1" y="1" width="958" height="518" rx="15" fill="none" stroke="#E2E8F0" stroke-width="1.5"/>
+    <rect width="960" height="540" rx="16" class="c-bg"/>
+    <rect x="1" y="1" width="958" height="538" rx="15" fill="none" stroke="#CCD0DA" stroke-width="1.5"/>
 
-    <!-- ================= HEADER SECTION ================= -->
-    <g transform="translate(24, 20)">
-        <rect width="912" height="96" rx="12" class="card"/>
+    <!-- ================= TOP STATUS BAR (WAYBAR) ================= -->
+    <!-- Left Module: Workspaces -->
+    <g transform="translate(14, 12)">
+        <rect width="240" height="30" rx="6" fill="#E6E9EF" stroke="#CCD0DA" stroke-width="1"/>
+        <rect x="4" y="4" width="52" height="22" rx="4" fill="#8839EF"/>
+        <text x="30" y="19" font-size="11" font-weight="700" fill="#EFF1F5" text-anchor="middle">1:dev</text>
+        <text x="84" y="19" font-size="11" font-weight="600" class="c-txt-muted" text-anchor="middle">2:term</text>
+        <text x="136" y="19" font-size="11" font-weight="600" class="c-txt-muted" text-anchor="middle">3:git</text>
+        <text x="188" y="19" font-size="11" font-weight="600" class="c-txt-muted" text-anchor="middle">4:sys</text>
+    </g>
+
+    <!-- Center Module: Host & Distro -->
+    <g transform="translate(268, 12)">
+        <rect width="396" height="30" rx="6" fill="#E6E9EF" stroke="#CCD0DA" stroke-width="1"/>
+        <text x="198" y="19" font-size="11" font-weight="600" class="c-txt-main" text-anchor="middle">
+            <tspan fill="#1E66F5">λ</tspan> archlinux <tspan fill="#9CA0B0">•</tspan> roody@arch:~ <tspan fill="#8839EF">(hyprland)</tspan>
+        </text>
+    </g>
+
+    <!-- Right Module: Rank & System Pill -->
+    <g transform="translate(678, 12)">
+        <rect width="268" height="30" rx="6" fill="#E6E9EF" stroke="#CCD0DA" stroke-width="1"/>
+        <text x="16" y="19" font-size="11" font-weight="700" fill="#DF8E1D">★ #26 Kurdistan</text>
+        <text x="142" y="19" font-size="11" font-weight="600" class="c-txt-muted">|</text>
+        <text x="158" y="19" font-size="11" font-weight="700" fill="#40A02B">⚡ 8d</text>
+        <circle cx="218" cy="15" r="4" fill="#40A02B"/>
+        <text x="228" y="19" font-size="11" font-weight="600" fill="#40A02B">idle</text>
+    </g>
+
+    <!-- ================= MAIN DESKTOP AREA ================= -->
+
+    <!-- LEFT WINDOW: TERMINAL (fastfetch & stack.json) -->
+    <g transform="translate(14, 52)">
+        <!-- Active Hyprland Border -->
+        <rect width="458" height="474" rx="10" fill="#FFFFFF" stroke="url(#hyprBorderLight)" stroke-width="1.5"/>
         
-        <!-- Avatar Circle -->
-        <circle cx="52" cy="48" r="26" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.5"/>
-        <text x="40" y="55" font-family="'Inter', sans-serif" font-weight="700" font-size="16" fill="#4F46E5">AM</text>
-
-        <!-- User Information -->
-        <text x="94" y="42" class="title">Ayub Mahmood</text>
-        <text x="264" y="40" class="handle">@roodyridar2</text>
-        <text x="94" y="64" class="subtitle">Software Engineer @ Otee • Erbil, Kurdistan</text>
-    </g>
-
-    <!-- ================= METRICS GRID (4 COLUMNS) ================= -->
-    <!-- 1. Repositories -->
-    <g transform="translate(24, 130)">
-        <rect width="216" height="88" rx="12" class="card"/>
-        <text x="20" y="30" class="label">Repositories</text>
-        <text x="20" y="66" id="repo_data" class="val-num">73</text>
-    </g>
-
-    <!-- 2. Contributions -->
-    <g transform="translate(256, 130)">
-        <rect width="216" height="88" rx="12" class="card"/>
-        <text x="20" y="30" class="label">Contributions</text>
-        <text x="20" y="66" id="contrib_data" class="val-accent">3,674</text>
-    </g>
-
-    <!-- 3. Current Streak -->
-    <g transform="translate(488, 130)">
-        <rect width="216" height="88" rx="12" class="card"/>
-        <text x="20" y="30" class="label">Current Streak</text>
-        <text x="20" y="66" id="streak_data" class="val-green">8</text>
-        <text x="45" y="64" id="streak_unit" class="body" font-size="12">days ⚡</text>
-    </g>
-
-    <!-- 4. Regional Rank -->
-    <g transform="translate(720, 130)">
-        <rect width="216" height="88" rx="12" class="card"/>
-        <text x="20" y="30" class="label">Regional Rank</text>
-        <text x="20" y="66" id="rank_data" class="val-purple">#26</text>
-        <text x="90" y="64" class="body" font-size="12">Kurdistan</text>
-    </g>
-
-    <!-- ================= MIDDLE SECTION (STACK & GRAPH) ================= -->
-    
-    <!-- LEFT: Tech Stack Section -->
-    <g transform="translate(24, 232)">
-        <rect width="448" height="180" rx="12" class="card"/>
+        <!-- Window Titlebar -->
+        <path d="M 0,10 Q 0,0 10,0 L 448,0 Q 458,0 458,10 L 458,30 L 0,30 Z" fill="#E6E9EF"/>
+        <line x1="0" y1="30" x2="458" y2="30" stroke="#CCD0DA" stroke-width="1"/>
         
-        <text x="20" y="30" class="label">Tech Stack &amp; Core Skills</text>
+        <!-- Controls -->
+        <circle cx="16" cy="15" r="4.5" fill="#D20F39"/>
+        <circle cx="30" cy="15" r="4.5" fill="#DF8E1D"/>
+        <circle cx="44" cy="15" r="4.5" fill="#40A02B"/>
+        <text x="60" y="19" font-size="11" font-weight="600" class="c-txt-sub">kitty ~ roody@arch: ~/profile</text>
+        <rect x="396" y="6" width="50" height="18" rx="3" fill="rgba(64, 160, 43, 0.15)"/>
+        <text x="421" y="19" font-size="9" font-weight="700" fill="#40A02B" text-anchor="middle">active</text>
 
-        <!-- Category 1: Frontend & Mobile -->
-        <g transform="translate(20, 44)">
-            <text x="0" y="14" class="subtitle" font-size="11" font-weight="600">Frontend &amp; Mobile</text>
-            <rect y="22" width="56" height="24" rx="6" class="chip-accent"/>
-            <text x="10" y="38" class="chip-accent-text">Flutter</text>
+        <!-- Command 1: fastfetch -->
+        <text x="16" y="54" font-size="12" font-weight="700" fill="#4C4F69">
+            <tspan fill="#40A02B">roody@arch</tspan><tspan fill="#9CA0B0">:</tspan><tspan fill="#1E66F5">~</tspan><tspan fill="#8839EF">$</tspan> fastfetch
+        </text>
 
-            <rect x="62" y="22" width="50" height="24" rx="6" class="chip"/>
-            <text x="72" y="38" class="chip-text">React</text>
-
-            <rect x="118" y="22" width="76" height="24" rx="6" class="chip"/>
-            <text x="128" y="38" class="chip-text">TypeScript</text>
-
-            <rect x="200" y="22" width="56" height="24" rx="6" class="chip"/>
-            <text x="210" y="38" class="chip-text">Next.js</text>
+        <!-- Vector Arch Logo -->
+        <g transform="translate(16, 70)">
+            <path d="M 40,8 L 10,76 C 21,70 30,66 40,66 C 35,55 33,43 35,33 C 38,41 42,50 49,58 C 55,57 61,58 69,61 L 40,8 Z M 40,72 C 34,72 26,75 16,79 C 27,82 36,84 44,84 C 51,84 58,82 67,78 C 58,74 49,72 40,72 Z" fill="url(#archGradLight)"/>
         </g>
 
-        <!-- Category 2: Backend & Database -->
-        <g transform="translate(20, 108)">
-            <text x="0" y="14" class="subtitle" font-size="11" font-weight="600">Backend &amp; Database</text>
-            <rect y="22" width="58" height="24" rx="6" class="chip"/>
-            <text x="10" y="38" class="chip-text">Node.js</text>
+        <!-- Fastfetch Info Lines -->
+        <g transform="translate(112, 74)">
+            <text x="0" y="12" font-size="13" font-weight="700" fill="#8839EF">roody@archlinux</text>
+            <line x1="0" y1="19" x2="326" y2="19" stroke="#CCD0DA" stroke-width="1"/>
 
-            <rect x="64" y="22" width="52" height="24" rx="6" class="chip"/>
-            <text x="74" y="38" class="chip-text">Docker</text>
+            <text x="0" y="36" font-size="11" font-weight="600" class="c-txt-peach">user     <tspan class="c-txt-main" font-weight="500">Ayub Mahmood</tspan></text>
+            <text x="0" y="54" font-size="11" font-weight="600" class="c-txt-yellow">role     <tspan class="c-txt-main" font-weight="500">Software Engineer @ Otee</tspan></text>
+            <text x="0" y="72" font-size="11" font-weight="600" class="c-txt-teal">loc      <tspan class="c-txt-main" font-weight="500">Erbil, Kurdistan</tspan></text>
+            <text x="0" y="90" font-size="11" font-weight="600" class="c-txt-blue">wm       <tspan class="c-txt-main" font-weight="500">Hyprland (Wayland)</tspan></text>
+            <text x="0" y="108" font-size="11" font-weight="600" class="c-txt-mauve">shell    <tspan class="c-txt-main" font-weight="500">zsh 5.9 (kitty)</tspan></text>
+            <text x="0" y="126" font-size="11" font-weight="600" class="c-txt-green">uptime   <tspan id="age_data" class="c-txt-green" font-weight="600">23 years, 7 months, 22 days</tspan></text>
 
-            <rect x="122" y="22" width="74" height="24" rx="6" class="chip"/>
-            <text x="132" y="38" class="chip-text">PostgreSQL</text>
+            <!-- Color Palette Row -->
+            <g transform="translate(0, 138)">
+                <rect x="0" width="18" height="9" rx="2" fill="#D20F39"/>
+                <rect x="22" width="18" height="9" rx="2" fill="#FE640B"/>
+                <rect x="44" width="18" height="9" rx="2" fill="#DF8E1D"/>
+                <rect x="66" width="18" height="9" rx="2" fill="#40A02B"/>
+                <rect x="88" width="18" height="9" rx="2" fill="#179299"/>
+                <rect x="110" width="18" height="9" rx="2" fill="#1E66F5"/>
+                <rect x="132" width="18" height="9" rx="2" fill="#8839EF"/>
+                <rect x="154" width="18" height="9" rx="2" fill="#4C4F69"/>
+            </g>
+        </g>
 
-            <rect x="202" y="22" width="52" height="24" rx="6" class="chip"/>
-            <text x="212" y="38" class="chip-text">Python</text>
+        <!-- Command 2: cat ~/.config/skills.json -->
+        <line x1="16" y1="242" x2="442" y2="242" stroke="#CCD0DA" stroke-dasharray="3,3"/>
+        <text x="16" y="264" font-size="12" font-weight="700" fill="#4C4F69">
+            <tspan fill="#40A02B">roody@arch</tspan><tspan fill="#9CA0B0">:</tspan><tspan fill="#1E66F5">~</tspan><tspan fill="#8839EF">$</tspan> cat ~/.config/stack.json
+        </text>
 
-            <rect x="260" y="22" width="40" height="24" rx="6" class="chip"/>
-            <text x="270" y="38" class="chip-text">SQL</text>
+        <!-- JSON Code Preview Card -->
+        <g transform="translate(16, 276)">
+            <rect width="426" height="154" rx="6" fill="#EFF1F5" stroke="#CCD0DA" stroke-width="1"/>
+            <text x="16" y="24" font-size="11" class="c-txt-muted">{</text>
+            
+            <text x="28" y="44" font-size="11" class="c-txt-blue">"frontend"<tspan class="c-txt-muted">: [</tspan><tspan class="c-txt-green">"Flutter"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"React"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"TypeScript"</tspan><tspan class="c-txt-muted">],</tspan></text>
+            
+            <text x="28" y="66" font-size="11" class="c-txt-blue">"backend" <tspan class="c-txt-muted">: [</tspan><tspan class="c-txt-green">"Node.js"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"Docker"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"PostgreSQL"</tspan><tspan class="c-txt-muted">],</tspan></text>
+            
+            <text x="28" y="88" font-size="11" class="c-txt-blue">"languages"<tspan class="c-txt-muted">: [</tspan><tspan class="c-txt-green">"Python"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"Dart"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"SQL"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-green">"Bash"</tspan><tspan class="c-txt-muted">],</tspan></text>
+            
+            <text x="28" y="110" font-size="11" class="c-txt-blue">"ricing"   <tspan class="c-txt-muted">: [</tspan><tspan class="c-txt-peach">"Hyprland"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-peach">"Waybar"</tspan><tspan class="c-txt-muted">, </tspan><tspan class="c-txt-peach">"Catppuccin"</tspan><tspan class="c-txt-muted">]</tspan></text>
+            
+            <text x="16" y="132" font-size="11" class="c-txt-muted">}</text>
+        </g>
+
+        <!-- Neovim Style Statusline -->
+        <g transform="translate(0, 446)">
+            <path d="M 0,0 L 458,0 L 458,18 Q 458,28 448,28 L 10,28 Q 0,28 0,18 Z" fill="#E6E9EF"/>
+            <rect x="8" y="5" width="62" height="18" rx="3" fill="#8839EF"/>
+            <text x="39" y="18" font-size="9" font-weight="800" fill="#EFF1F5" text-anchor="middle">NORMAL</text>
+            <text x="80" y="18" font-size="10" font-weight="600" class="c-txt-main">stack.json</text>
+            <text x="380" y="18" font-size="10" font-weight="600" class="c-txt-muted">utf-8 | 100%</text>
         </g>
     </g>
 
-    <!-- RIGHT: Activity Graph Bar Chart -->
-    <g transform="translate(488, 232)">
-        <rect width="448" height="180" rx="12" class="card"/>
+    <!-- ================= RIGHT COLUMN ================= -->
+
+    <!-- TOP RIGHT: GIT STATS RADAR -->
+    <g transform="translate(486, 52)">
+        <rect width="460" height="224" rx="10" fill="#FFFFFF" stroke="#CCD0DA" stroke-width="1"/>
         
-        <text x="20" y="30" class="label">Weekly Activity Graph</text>
+        <!-- Header / Titlebar -->
+        <path d="M 0,10 Q 0,0 10,0 L 450,0 Q 460,0 460,10 L 460,30 L 0,30 Z" fill="#E6E9EF"/>
+        <line x1="0" y1="30" x2="460" y2="30" stroke="#CCD0DA" stroke-width="1"/>
+        <circle cx="16" cy="15" r="4.5" fill="#D20F39"/>
+        <circle cx="30" cy="15" r="4.5" fill="#DF8E1D"/>
+        <circle cx="44" cy="15" r="4.5" fill="#40A02B"/>
+        <text x="60" y="19" font-size="11" font-weight="600" class="c-txt-sub">git-radar ~ metrics</text>
+        <rect x="396" y="6" width="50" height="18" rx="3" fill="rgba(30, 102, 245, 0.15)"/>
+        <text x="421" y="19" font-size="9" font-weight="700" fill="#1E66F5" text-anchor="middle">master</text>
+
+        <!-- 2x2 Metric Grid -->
+        <!-- Card 1: Streak -->
+        <g transform="translate(16, 42)">
+            <rect width="206" height="78" rx="6" fill="#EFF1F5" stroke="#CCD0DA" stroke-width="1"/>
+            <text x="20" y="24" class="label">CURRENT STREAK</text>
+            <text x="20" y="60" id="streak_data" class="val-green">8</text>
+            <text x="45" y="58" id="streak_unit" class="body">days ⚡</text>
+        </g>
+
+        <!-- Card 2: Rank -->
+        <g transform="translate(238, 42)">
+            <rect width="206" height="78" rx="6" fill="#EFF1F5" stroke="#CCD0DA" stroke-width="1"/>
+            <text x="20" y="24" class="label">REGIONAL RANK</text>
+            <text x="20" y="60" id="rank_data" class="val-purple">#26</text>
+            <text x="80" y="58" class="body">Kurdistan</text>
+        </g>
+
+        <!-- Card 3: Repositories -->
+        <g transform="translate(16, 132)">
+            <rect width="206" height="78" rx="6" fill="#EFF1F5" stroke="#CCD0DA" stroke-width="1"/>
+            <text x="20" y="24" class="label">REPOSITORIES</text>
+            <text x="20" y="60" id="repo_data" class="val-num">73</text>
+            <text x="75" y="58" class="body">public</text>
+        </g>
+
+        <!-- Card 4: Contributions -->
+        <g transform="translate(238, 132)">
+            <rect width="206" height="78" rx="6" fill="#EFF1F5" stroke="#CCD0DA" stroke-width="1"/>
+            <text x="20" y="24" class="label">CONTRIBUTIONS</text>
+            <text x="20" y="60" id="contrib_data" class="val-accent">3,674</text>
+            <text x="115" y="58" class="body">total</text>
+        </g>
+    </g>
+
+    <!-- BOTTOM RIGHT: ACTIVITY GRAPH & LOC (btop style) -->
+    <g transform="translate(486, 290)">
+        <rect width="460" height="236" rx="10" fill="#FFFFFF" stroke="#CCD0DA" stroke-width="1"/>
+        
+        <!-- Header / Titlebar -->
+        <path d="M 0,10 Q 0,0 10,0 L 450,0 Q 460,0 460,10 L 460,30 L 0,30 Z" fill="#E6E9EF"/>
+        <line x1="0" y1="30" x2="460" y2="30" stroke="#CCD0DA" stroke-width="1"/>
+        <circle cx="16" cy="15" r="4.5" fill="#D20F39"/>
+        <circle cx="30" cy="15" r="4.5" fill="#DF8E1D"/>
+        <circle cx="44" cy="15" r="4.5" fill="#40A02B"/>
+        <text x="60" y="19" font-size="11" font-weight="600" class="c-txt-sub">btop v1.3.2 ~ git activity</text>
+        <rect x="396" y="6" width="50" height="18" rx="3" fill="rgba(64, 160, 43, 0.15)"/>
+        <text x="421" y="19" font-size="9" font-weight="700" fill="#40A02B" text-anchor="middle">running</text>
 
         <!-- Dynamic Activity Bars Container -->
-        <g transform="translate(24, 36)">
+        <g transform="translate(32, 24)">
             <!-- Grid Lines -->
-            <line x1="0" y1="35" x2="400" y2="35" stroke="#E2E8F0" stroke-dasharray="4,4"/>
-            <line x1="0" y1="70" x2="400" y2="70" stroke="#E2E8F0" stroke-dasharray="4,4"/>
-            <line x1="0" y1="105" x2="400" y2="105" stroke="#CBD5E1"/>
+            <line x1="0" y1="35" x2="400" y2="35" stroke="#CCD0DA" stroke-dasharray="4,4"/>
+            <line x1="0" y1="70" x2="400" y2="70" stroke="#CCD0DA" stroke-dasharray="4,4"/>
+            <line x1="0" y1="105" x2="400" y2="105" stroke="#CCD0DA"/>
 
             <!-- Bar 0 (Mon) -->
             <path id="bar_0" d="M 20,105 L 20,35 Q 20,30 25,30 L 43,30 Q 48,30 48,35 L 48,105 Z" class="bar"/>
@@ -165,35 +264,21 @@
             <path id="bar_6" d="M 350,105 L 350,104 Q 350,99 355,99 L 373,99 Q 378,99 378,104 L 378,105 Z" class="bar"/>
             <text x="364" y="120" class="day-label">Sun</text>
         </g>
-    </g>
 
-    <!-- ================= BOTTOM OVERVIEW BAR ================= -->
-    <g transform="translate(24, 424)">
-        <rect width="912" height="76" rx="12" class="card"/>
-        
-        <!-- Lines of Code & Links -->
-        <g transform="translate(20, 24)">
-            <text x="0" y="14" class="label">Lines of Code</text>
-            <text x="110" y="15" id="loc_data" class="mono">7,543,886</text>
+        <!-- Divider & Terminal Metrics Footer -->
+        <line x1="16" y1="164" x2="444" y2="164" stroke="#CCD0DA" stroke-width="1"/>
 
-            <text x="200" y="15" id="loc_add" class="add">++ 8,684,111</text>
-            <text x="300" y="15" id="loc_del" class="del">-- 1,140,225</text>
-        </g>
-
-        <g transform="translate(20, 50)">
-            <text x="0" y="14" class="subtitle">Total Commits:</text>
-            <text x="105" y="14" id="commit_data" class="mono">3,624</text>
-
-            <text x="250" y="14" class="subtitle">Followers:</text>
-            <text x="320" y="14" id="follower_data" class="mono">10</text>
-
-            <text x="400" y="14" class="subtitle">Portfolio:</text>
-            <text x="470" y="14" class="mono" fill="#4F46E5">https://ayub.is-a.dev/</text>
+        <g transform="translate(16, 174)">
+            <text x="0" y="14" font-size="11" class="c-txt-muted">
+                Lines of Code: <tspan id="loc_data" class="mono">7,543,886</tspan>  <tspan id="loc_add" class="add">++ 8,684,111</tspan>  <tspan id="loc_del" class="del">-- 1,140,225</tspan>
+            </text>
+            <text x="0" y="38" font-size="11" class="c-txt-muted">
+                Commits: <tspan id="commit_data" class="mono">3,624</tspan>  •  Followers: <tspan id="follower_data" class="mono">10</tspan>  •  <tspan fill="#1E66F5">ayub.is-a.dev</tspan>
+            </text>
         </g>
     </g>
 
-    <!-- Hidden elements for today.py compatibility -->
-    <text id="age_data" display="none">23 years, 7 months, 18 days</text>
+    <!-- Hidden compatibility elements for today.py -->
     <text id="age_data_dots" display="none"> . </text>
     <text id="commit_data_dots" display="none"> . </text>
     <text id="rank_data_dots" display="none"> . </text>
