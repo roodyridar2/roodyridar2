@@ -220,7 +220,7 @@
             <g transform="translate(14, 133)">
                 <rect width="209" height="83" rx="6" fill="#EFF1F5" stroke="#CCD0DA" stroke-width="1"/>
                 <text x="20" y="24" class="label">REPOSITORIES</text>
-                <text x="20" y="62" id="repo_data" class="val-num">75</text>
+                <text x="20" y="62" id="repo_data" class="val-num">76</text>
                 <text x="75" y="60" class="body">public</text>
             </g>
 
@@ -228,7 +228,7 @@
             <g transform="translate(236, 133)">
                 <rect width="209" height="83" rx="6" fill="#EFF1F5" stroke="#CCD0DA" stroke-width="1"/>
                 <text x="20" y="24" class="label">CONTRIBUTIONS</text>
-                <text x="20" y="62" id="contrib_data" class="val-accent">3,765</text>
+                <text x="20" y="62" id="contrib_data" class="val-accent">3,796</text>
                 <text x="115" y="60" class="body">total</text>
             </g>
         </g>
@@ -260,27 +260,27 @@
                 <line x1="0" y1="105" x2="400" y2="105" stroke="#CCD0DA"/>
 
                 <!-- Bar 0 (Mon) -->
-                <path id="bar_0" d="M 20,105 L 20,104 Q 20,99 25,99 L 43,99 Q 48,99 48,104 L 48,105 Z" class="bar"/>
+                <path id="bar_0" d="M 20,105 L 20,92 Q 20,87 25,87 L 43,87 Q 48,87 48,92 L 48,105 Z" class="bar"/>
                 <text x="34" y="120" class="day-label">Mon</text>
 
                 <!-- Bar 1 (Tue) -->
-                <path id="bar_1" d="M 75,105 L 75,92 Q 75,87 80,87 L 98,87 Q 103,87 103,92 L 103,105 Z" class="bar"/>
+                <path id="bar_1" d="M 75,105 L 75,35 Q 75,30 80,30 L 98,30 Q 103,30 103,35 L 103,105 Z" class="bar"/>
                 <text x="89" y="120" class="day-label">Tue</text>
 
                 <!-- Bar 2 (Wed) -->
-                <path id="bar_2" d="M 130,105 L 130,35 Q 130,30 135,30 L 153,30 Q 158,30 158,35 L 158,105 Z" class="bar-active"/>
+                <path id="bar_2" d="M 130,105 L 130,94 Q 130,89 135,89 L 153,89 Q 158,89 158,94 L 158,105 Z" class="bar-active"/>
                 <text x="144" y="120" class="day-label">Wed</text>
 
                 <!-- Bar 3 (Thu) -->
-                <path id="bar_3" d="M 185,105 L 185,94 Q 185,89 190,89 L 208,89 Q 213,89 213,94 L 213,105 Z" class="bar"/>
+                <path id="bar_3" d="M 185,105 L 185,91 Q 185,86 190,86 L 208,86 Q 213,86 213,91 L 213,105 Z" class="bar"/>
                 <text x="199" y="120" class="day-label">Thu</text>
 
                 <!-- Bar 4 (Fri) -->
-                <path id="bar_4" d="M 240,105 L 240,91 Q 240,86 245,86 L 263,86 Q 268,86 268,91 L 268,105 Z" class="bar"/>
+                <path id="bar_4" d="M 240,105 L 240,98 Q 240,93 245,93 L 263,93 Q 268,93 268,98 L 268,105 Z" class="bar"/>
                 <text x="254" y="120" class="day-label">Fri</text>
 
                 <!-- Bar 5 (Sat) -->
-                <path id="bar_5" d="M 295,105 L 295,98 Q 295,93 300,93 L 318,93 Q 323,93 323,98 L 323,105 Z" class="bar"/>
+                <path id="bar_5" d="M 295,105 L 295,81 Q 295,76 300,76 L 318,76 Q 323,76 323,81 L 323,105 Z" class="bar"/>
                 <text x="309" y="120" class="day-label">Sat</text>
 
                 <!-- Bar 6 (Sun) -->
@@ -293,10 +293,10 @@
 
             <g transform="translate(14, 168)">
                 <text x="0" y="14" font-size="11" class="c-txt-muted">
-                    Lines of Code: <tspan id="loc_data" class="mono">7,620,623</tspan>  <tspan id="loc_add" class="add">++ 8,810,426</tspan>  <tspan id="loc_del" class="del">-- 1,189,803</tspan>
+                    Lines of Code: <tspan id="loc_data" class="mono">7,627,477</tspan>  <tspan id="loc_add" class="add">++ 8,818,593</tspan>  <tspan id="loc_del" class="del">-- 1,191,116</tspan>
                 </text>
                 <text x="0" y="38" font-size="11" class="c-txt-muted">
-                    Commits: <tspan id="commit_data" class="mono">3,713</tspan>  •  Followers: <tspan id="follower_data" class="mono">10</tspan>  •  <tspan fill="#1E66F5">ayub.is-a.dev</tspan>
+                    Commits: <tspan id="commit_data" class="mono">3,739</tspan>  •  Followers: <tspan id="follower_data" class="mono">10</tspan>  •  <tspan fill="#1E66F5">ayub.is-a.dev</tspan>
                 </text>
             </g>
         </g>
