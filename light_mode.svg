@@ -130,7 +130,7 @@
                 <text x="0" y="72" font-size="11" font-weight="600" class="c-txt-teal">loc      <tspan class="c-txt-main" font-weight="500">Erbil, Kurdistan</tspan></text>
                 <text x="0" y="90" font-size="11" font-weight="600" class="c-txt-blue">wm       <tspan class="c-txt-main" font-weight="500">Hyprland (Wayland)</tspan></text>
                 <text x="0" y="108" font-size="11" font-weight="600" class="c-txt-mauve">shell    <tspan class="c-txt-main" font-weight="500">zsh 5.9 (kitty)</tspan></text>
-                <text x="0" y="126" font-size="11" font-weight="600" class="c-txt-green">uptime   <tspan id="age_data" class="c-txt-green" font-weight="600">23 years, 8 months, 4 days</tspan></text>
+                <text x="0" y="126" font-size="11" font-weight="600" class="c-txt-green">uptime   <tspan id="age_data" class="c-txt-green" font-weight="600">23 years, 8 months, 5 days</tspan></text>
 
                 <!-- Color Palette Row -->
                 <g transform="translate(0, 138)">
@@ -204,8 +204,8 @@
             <g transform="translate(14, 40)">
                 <rect width="209" height="83" rx="6" fill="#EFF1F5" stroke="#CCD0DA" stroke-width="1"/>
                 <text x="20" y="24" class="label">CURRENT STREAK</text>
-                <text x="20" y="62" id="streak_data" class="val-green">20</text>
-                <text x="62" y="60" id="streak_unit" class="body">days ⚡</text>
+                <text x="20" y="62" id="streak_data" class="val-green">0</text>
+                <text x="45" y="60" id="streak_unit" class="body">days ⚡</text>
             </g>
 
             <!-- Card 2: Rank -->
@@ -260,23 +260,23 @@
                 <line x1="0" y1="105" x2="400" y2="105" stroke="#CCD0DA"/>
 
                 <!-- Bar 0 (Mon) -->
-                <path id="bar_0" d="M 20,105 L 20,35 Q 20,30 25,30 L 43,30 Q 48,30 48,35 L 48,105 Z" class="bar"/>
+                <path id="bar_0" d="M 20,105 L 20,57 Q 20,52 25,52 L 43,52 Q 48,52 48,57 L 48,105 Z" class="bar"/>
                 <text x="34" y="120" class="day-label">Mon</text>
 
                 <!-- Bar 1 (Tue) -->
-                <path id="bar_1" d="M 75,105 L 75,70 Q 75,65 80,65 L 98,65 Q 103,65 103,70 L 103,105 Z" class="bar"/>
+                <path id="bar_1" d="M 75,105 L 75,60 Q 75,55 80,55 L 98,55 Q 103,55 103,60 L 103,105 Z" class="bar"/>
                 <text x="89" y="120" class="day-label">Tue</text>
 
                 <!-- Bar 2 (Wed) -->
-                <path id="bar_2" d="M 130,105 L 130,72 Q 130,67 135,67 L 153,67 Q 158,67 158,72 L 158,105 Z" class="bar-active"/>
+                <path id="bar_2" d="M 130,105 L 130,35 Q 130,30 135,30 L 153,30 Q 158,30 158,35 L 158,105 Z" class="bar-active"/>
                 <text x="144" y="120" class="day-label">Wed</text>
 
                 <!-- Bar 3 (Thu) -->
-                <path id="bar_3" d="M 185,105 L 185,54 Q 185,49 190,49 L 208,49 Q 213,49 213,54 L 213,105 Z" class="bar"/>
+                <path id="bar_3" d="M 185,105 L 185,65 Q 185,60 190,60 L 208,60 Q 213,60 213,65 L 213,105 Z" class="bar"/>
                 <text x="199" y="120" class="day-label">Thu</text>
 
                 <!-- Bar 4 (Fri) -->
-                <path id="bar_4" d="M 240,105 L 240,76 Q 240,71 245,71 L 263,71 Q 268,71 268,76 L 268,105 Z" class="bar"/>
+                <path id="bar_4" d="M 240,105 L 240,104 Q 240,99 245,99 L 263,99 Q 268,99 268,104 L 268,105 Z" class="bar"/>
                 <text x="254" y="120" class="day-label">Fri</text>
 
                 <!-- Bar 5 (Sat) -->
