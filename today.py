@@ -29,9 +29,20 @@ def format_plural(unit):
     return 's' if unit != 1 else ''
 
 
+def graphql_post(query, variables, retries=4):
+    # GitHub's GraphQL API returns 502/503/504 when a query times out on their side; retry with backoff
+    for attempt in range(retries + 1):
+        request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables},
+                                headers=HEADERS)
+        if request.status_code not in (502, 503, 504) or attempt == retries:
+            return request
+        wait = 2 ** (attempt + 1)
+        print('   GitHub returned', request.status_code, '- retrying in', wait, 's')
+        time.sleep(wait)
+
+
 def simple_request(func_name, query, variables):
-    request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables},
-                            headers=HEADERS)
+    request = graphql_post(query, variables)
     if request.status_code == 200:
         return request
     raise Exception(func_name, ' has failed with a', request.status_code, request.text, QUERY_COUNT)
@@ -204,8 +215,7 @@ def recursive_loc(owner, repo_name, data, cache_comment, addition_total=0, delet
     while True:
         query_count('recursive_loc')
         variables = {'repo_name': repo_name, 'owner': owner, 'cursor': cursor}
-        request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables},
-                                headers=HEADERS)
+        request = graphql_post(query, variables)
         if request.status_code != 200:
             force_close_file(data, cache_comment)
             if request.status_code == 403:
@@ -236,7 +246,7 @@ def loc_query(owner_affiliation, comment_size=0, force_cache=False, cursor=None,
     query = '''
     query ($owner_affiliation: [RepositoryAffiliation], $login: String!, $cursor: String) {
         user(login: $login) {
-            repositories(first: 60, after: $cursor, ownerAffiliations: $owner_affiliation) {
+            repositories(first: 30, after: $cursor, ownerAffiliations: $owner_affiliation) {
             edges {
                 node {
                     ... on Repository {
