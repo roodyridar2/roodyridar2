@@ -398,12 +398,8 @@ def svg_overwrite(filename, age_data, commit_data, streak_data, rank_data, repo_
     justify_format(root, 'loc_data', loc_data[2], 0)
     justify_format(root, 'streak_data', streak_data, 0)
 
-    # Dynamically position streak unit label ("days ⚡") next to the streak number
-    streak_unit = root.find(".//*[@id='streak_unit']")
-    if streak_unit is not None:
-        streak_str = str(streak_data)
-        streak_width = len(streak_str) * 17
-        streak_unit.attrib['x'] = str(20 + streak_width + 8)
+    # The unit is a tspan that flows after the number, so only its wording changes
+    justify_format(root, 'streak_unit', 'day' if str(streak_data).strip() == '1' else 'days', 0)
 
     # Custom Prefixes
     justify_format(root, 'commit_data', f"{commit_data:,}", 0)
@@ -411,21 +407,25 @@ def svg_overwrite(filename, age_data, commit_data, streak_data, rank_data, repo_
     justify_format(root, 'loc_add', f"++ {loc_data[0]}", 0)
     justify_format(root, 'loc_del', f"-- {loc_data[1]}", 0)
 
-    # Dynamic Activity Graph Bars
+    # Dynamic Activity Graph Bars (the last bar is today)
     if daily_counts:
         max_c = max(daily_counts) if max(daily_counts) > 0 else 1
-        base_y = 105
-        max_h = 75
-        bar_x = [20, 75, 130, 185, 240, 295, 350]
-        w = 28
+        base_y = 120
+        max_h = 100
+        bar_x = [28, 100, 172, 244, 316, 388, 460]
+        w = 40
         r = 5
+        today = datetime.date.today()
         for i in range(min(7, len(daily_counts))):
+            day = root.find(f".//*[@id='day_{i}']")
+            if day is not None:
+                day.text = (today - datetime.timedelta(days=len(daily_counts[-7:]) - 1 - i)).strftime('%a')
             bar = root.find(f".//*[@id='bar_{i}']")
             if bar is not None:
                 c = daily_counts[i]
-                h = int(max(6, (c / max_c) * max_h))
+                h = int(max(8, (c / max_c) * max_h))
                 y = base_y - h
-                x = bar_x[i] if i < len(bar_x) else 20 + i * 55
+                x = bar_x[i] if i < len(bar_x) else 28 + i * 72
                 path_d = f"M {x},{base_y} L {x},{y+r} Q {x},{y} {x+r},{y} L {x+w-r},{y} Q {x+w},{y} {x+w},{y+r} L {x+w},{base_y} Z"
                 if 'path' in bar.tag.lower():
                     bar.attrib['d'] = path_d
