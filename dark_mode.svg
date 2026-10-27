@@ -76,7 +76,7 @@
         <g transform="translate(470, 0)">
             <rect width="223" height="110" rx="12" fill="rgba(137, 180, 250, 0.08)" stroke="rgba(137, 180, 250, 0.25)"/>
             <text x="22" y="32" class="lbl">CONTRIBUTIONS · PAST YEAR</text>
-            <text x="22" y="82"><tspan id="contrib_data" class="big bl">3,998</tspan></text>
+            <text x="22" y="82"><tspan id="contrib_data" class="big bl">3,999</tspan></text>
         </g>
         <g transform="translate(705, 0)">
             <rect width="223" height="110" rx="12" fill="#1E1E2E" stroke="#313244"/>
@@ -101,11 +101,11 @@
             <text id="day_2" x="192" y="142" class="day">Fri</text>
             <path id="bar_3" d="M 244,120 L 244,94 Q 244,89 249,89 L 279,89 Q 284,89 284,94 L 284,120 Z" class="bar"/>
             <text id="day_3" x="264" y="142" class="day">Sat</text>
-            <path id="bar_4" d="M 316,120 L 316,45 Q 316,40 321,40 L 351,40 Q 356,40 356,45 L 356,120 Z" class="bar"/>
+            <path id="bar_4" d="M 316,120 L 316,44 Q 316,39 321,39 L 351,39 Q 356,39 356,44 L 356,120 Z" class="bar"/>
             <text id="day_4" x="336" y="142" class="day">Sun</text>
             <path id="bar_5" d="M 388,120 L 388,25 Q 388,20 393,20 L 423,20 Q 428,20 428,25 L 428,120 Z" class="bar"/>
             <text id="day_5" x="408" y="142" class="day">Mon</text>
-            <path id="bar_6" d="M 460,120 L 460,115 Q 460,110 465,110 L 495,110 Q 500,110 500,115 L 500,120 Z" class="bar-active"/>
+            <path id="bar_6" d="M 460,120 L 460,113 Q 460,108 465,108 L 495,108 Q 500,108 500,113 L 500,120 Z" class="bar-active"/>
             <text id="day_6" x="480" y="142" class="day">Tue</text>
         </g>
     </g>
@@ -114,12 +114,12 @@
     <g transform="translate(588, 254)">
         <rect width="356" height="210" rx="12" fill="#1E1E2E" stroke="#313244" filter="url(#softShadow)"/>
         <text x="22" y="32" class="lbl">LINES OF CODE</text>
-        <text x="22" y="66" id="loc_data" font-size="28" font-weight="800" class="t">7,929,363</text>
-        <text x="22" y="90" font-size="12" font-weight="700"><tspan id="loc_add" class="gr">++ 9,274,827</tspan><tspan dx="14" id="loc_del" class="rd">-- 1,345,464</tspan></text>
+        <text x="22" y="66" id="loc_data" font-size="28" font-weight="800" class="t">7,928,974</text>
+        <text x="22" y="90" font-size="12" font-weight="700"><tspan id="loc_add" class="gr">++ 9,275,047</tspan><tspan dx="14" id="loc_del" class="rd">-- 1,346,073</tspan></text>
         <line x1="22" y1="106" x2="334" y2="106" stroke="#313244"/>
         <text x="22" y="128" class="lbl">COMMITS</text>
         <text x="182" y="128" class="lbl">FOLLOWERS</text>
-        <text x="22" y="152" id="commit_data" class="num">3,920</text>
+        <text x="22" y="152" id="commit_data" class="num">3,921</text>
         <text x="182" y="152" id="follower_data" class="num">13</text>
         <g transform="translate(22, 172)">
             <rect width="66" height="22" rx="11" fill="#181825" stroke="#313244"/><text x="33" y="15" class="chip">Flutter</text>
