@@ -58,7 +58,7 @@
         <text x="100" y="46" class="name">Ayub Mahmood</text>
         <text x="100" y="72" class="tagline">Software Engineer @ Otee <tspan class="f">·</tspan> Erbil, Kurdistan <tspan class="f">·</tspan> Arch + Hyprland</text>
         <text x="904" y="46" font-size="14" font-weight="700" class="bl" text-anchor="end">ayub.is-a.dev</text>
-        <text x="904" y="72" font-size="12" font-weight="600" class="m" text-anchor="end">uptime <tspan id="age_data" class="gr">23 years, 9 months, 14 days</tspan></text>
+        <text x="904" y="72" font-size="12" font-weight="600" class="m" text-anchor="end">uptime <tspan id="age_data" class="gr">23 years, 9 months, 15 days</tspan></text>
     </g>
 
     <!-- Stat tiles -->
@@ -66,7 +66,7 @@
         <g>
             <rect width="223" height="110" rx="12" fill="rgba(166, 227, 161, 0.08)" stroke="rgba(166, 227, 161, 0.25)"/>
             <text x="22" y="32" class="lbl">CURRENT STREAK</text>
-            <text x="22" y="82"><tspan id="streak_data" class="big gr">4</tspan><tspan id="streak_unit" dx="10" class="unit">days</tspan></text>
+            <text x="22" y="82"><tspan id="streak_data" class="big gr">5</tspan><tspan id="streak_unit" dx="10" class="unit">days</tspan></text>
         </g>
         <g transform="translate(235, 0)">
             <rect width="223" height="110" rx="12" fill="rgba(203, 166, 247, 0.08)" stroke="rgba(203, 166, 247, 0.25)"/>
@@ -76,7 +76,7 @@
         <g transform="translate(470, 0)">
             <rect width="223" height="110" rx="12" fill="rgba(137, 180, 250, 0.08)" stroke="rgba(137, 180, 250, 0.25)"/>
             <text x="22" y="32" class="lbl">CONTRIBUTIONS · PAST YEAR</text>
-            <text x="22" y="82"><tspan id="contrib_data" class="big bl">4,054</tspan></text>
+            <text x="22" y="82"><tspan id="contrib_data" class="big bl">4,106</tspan></text>
         </g>
         <g transform="translate(705, 0)">
             <rect width="223" height="110" rx="12" fill="#1E1E2E" stroke="#313244"/>
@@ -94,19 +94,19 @@
             <line x1="0" y1="70" x2="512" y2="70" stroke="#313244" stroke-dasharray="4,4"/>
             <line x1="0" y1="120" x2="512" y2="120" stroke="#45475A"/>
             <path id="bar_0" d="M 28,120 L 28,117 Q 28,112 33,112 L 63,112 Q 68,112 68,117 L 68,120 Z" class="bar"/>
-            <text id="day_0" x="48" y="142" class="day">Thu</text>
-            <path id="bar_1" d="M 100,120 L 100,117 Q 100,112 105,112 L 135,112 Q 140,112 140,117 L 140,120 Z" class="bar"/>
-            <text id="day_1" x="120" y="142" class="day">Fri</text>
-            <path id="bar_2" d="M 172,120 L 172,107 Q 172,102 177,102 L 207,102 Q 212,102 212,107 L 212,120 Z" class="bar"/>
-            <text id="day_2" x="192" y="142" class="day">Sat</text>
-            <path id="bar_3" d="M 244,120 L 244,75 Q 244,70 249,70 L 279,70 Q 284,70 284,75 L 284,120 Z" class="bar"/>
-            <text id="day_3" x="264" y="142" class="day">Sun</text>
-            <path id="bar_4" d="M 316,120 L 316,59 Q 316,54 321,54 L 351,54 Q 356,54 356,59 L 356,120 Z" class="bar"/>
-            <text id="day_4" x="336" y="142" class="day">Mon</text>
-            <path id="bar_5" d="M 388,120 L 388,25 Q 388,20 393,20 L 423,20 Q 428,20 428,25 L 428,120 Z" class="bar"/>
-            <text id="day_5" x="408" y="142" class="day">Tue</text>
+            <text id="day_0" x="48" y="142" class="day">Fri</text>
+            <path id="bar_1" d="M 100,120 L 100,112 Q 100,107 105,107 L 135,107 Q 140,107 140,112 L 140,120 Z" class="bar"/>
+            <text id="day_1" x="120" y="142" class="day">Sat</text>
+            <path id="bar_2" d="M 172,120 L 172,85 Q 172,80 177,80 L 207,80 Q 212,80 212,85 L 212,120 Z" class="bar"/>
+            <text id="day_2" x="192" y="142" class="day">Sun</text>
+            <path id="bar_3" d="M 244,120 L 244,78 Q 244,73 249,73 L 279,73 Q 284,73 284,78 L 284,120 Z" class="bar"/>
+            <text id="day_3" x="264" y="142" class="day">Mon</text>
+            <path id="bar_4" d="M 316,120 L 316,25 Q 316,20 321,20 L 351,20 Q 356,20 356,25 L 356,120 Z" class="bar"/>
+            <text id="day_4" x="336" y="142" class="day">Tue</text>
+            <path id="bar_5" d="M 388,120 L 388,91 Q 388,86 393,86 L 423,86 Q 428,86 428,91 L 428,120 Z" class="bar"/>
+            <text id="day_5" x="408" y="142" class="day">Wed</text>
             <path id="bar_6" d="M 460,120 L 460,117 Q 460,112 465,112 L 495,112 Q 500,112 500,117 L 500,120 Z" class="bar-active"/>
-            <text id="day_6" x="480" y="142" class="day">Wed</text>
+            <text id="day_6" x="480" y="142" class="day">Thu</text>
         </g>
     </g>
 
@@ -114,12 +114,12 @@
     <g transform="translate(588, 254)">
         <rect width="356" height="210" rx="12" fill="#1E1E2E" stroke="#313244" filter="url(#softShadow)"/>
         <text x="22" y="32" class="lbl">LINES OF CODE</text>
-        <text x="22" y="66" id="loc_data" font-size="28" font-weight="800" class="t">7,931,395</text>
-        <text x="22" y="90" font-size="12" font-weight="700"><tspan id="loc_add" class="gr">++ 9,277,468</tspan><tspan dx="14" id="loc_del" class="rd">-- 1,346,073</tspan></text>
+        <text x="22" y="66" id="loc_data" font-size="28" font-weight="800" class="t">7,942,256</text>
+        <text x="22" y="90" font-size="12" font-weight="700"><tspan id="loc_add" class="gr">++ 9,290,724</tspan><tspan dx="14" id="loc_del" class="rd">-- 1,348,468</tspan></text>
         <line x1="22" y1="106" x2="334" y2="106" stroke="#313244"/>
         <text x="22" y="128" class="lbl">COMMITS</text>
         <text x="182" y="128" class="lbl">FOLLOWERS</text>
-        <text x="22" y="152" id="commit_data" class="num">3,972</text>
+        <text x="22" y="152" id="commit_data" class="num">4,023</text>
         <text x="182" y="152" id="follower_data" class="num">13</text>
         <g transform="translate(22, 172)">
             <rect width="66" height="22" rx="11" fill="#181825" stroke="#313244"/><text x="33" y="15" class="chip">Flutter</text>
