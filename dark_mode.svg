@@ -93,15 +93,15 @@
             <line x1="0" y1="20" x2="512" y2="20" stroke="#313244" stroke-dasharray="4,4"/>
             <line x1="0" y1="70" x2="512" y2="70" stroke="#313244" stroke-dasharray="4,4"/>
             <line x1="0" y1="120" x2="512" y2="120" stroke="#45475A"/>
-            <path id="bar_0" d="M 28,120 L 28,85 Q 28,80 33,80 L 63,80 Q 68,80 68,85 L 68,120 Z" class="bar"/>
+            <path id="bar_0" d="M 28,120 L 28,78 Q 28,73 33,73 L 63,73 Q 68,73 68,78 L 68,120 Z" class="bar"/>
             <text id="day_0" x="48" y="142" class="day">Sun</text>
-            <path id="bar_1" d="M 100,120 L 100,78 Q 100,73 105,73 L 135,73 Q 140,73 140,78 L 140,120 Z" class="bar"/>
+            <path id="bar_1" d="M 100,120 L 100,25 Q 100,20 105,20 L 135,20 Q 140,20 140,25 L 140,120 Z" class="bar"/>
             <text id="day_1" x="120" y="142" class="day">Mon</text>
-            <path id="bar_2" d="M 172,120 L 172,25 Q 172,20 177,20 L 207,20 Q 212,20 212,25 L 212,120 Z" class="bar"/>
+            <path id="bar_2" d="M 172,120 L 172,91 Q 172,86 177,86 L 207,86 Q 212,86 212,91 L 212,120 Z" class="bar"/>
             <text id="day_2" x="192" y="142" class="day">Tue</text>
-            <path id="bar_3" d="M 244,120 L 244,91 Q 244,86 249,86 L 279,86 Q 284,86 284,91 L 284,120 Z" class="bar"/>
+            <path id="bar_3" d="M 244,120 L 244,102 Q 244,97 249,97 L 279,97 Q 284,97 284,102 L 284,120 Z" class="bar"/>
             <text id="day_3" x="264" y="142" class="day">Wed</text>
-            <path id="bar_4" d="M 316,120 L 316,102 Q 316,97 321,97 L 351,97 Q 356,97 356,102 L 356,120 Z" class="bar"/>
+            <path id="bar_4" d="M 316,120 L 316,117 Q 316,112 321,112 L 351,112 Q 356,112 356,117 L 356,120 Z" class="bar"/>
             <text id="day_4" x="336" y="142" class="day">Thu</text>
             <path id="bar_5" d="M 388,120 L 388,117 Q 388,112 393,112 L 423,112 Q 428,112 428,117 L 428,120 Z" class="bar"/>
             <text id="day_5" x="408" y="142" class="day">Fri</text>
