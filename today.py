@@ -41,6 +41,10 @@ def graphql_post(query, variables, retries=4):
         time.sleep(wait)
 
 
+class GitHubTimeout(Exception):
+    pass
+
+
 def simple_request(func_name, query, variables):
     request = graphql_post(query, variables)
     if request.status_code == 200:
@@ -181,12 +185,12 @@ def graph_repos_stars(count_type, owner_affiliation, cursor=None):
 def recursive_loc(owner, repo_name, data, cache_comment, addition_total=0, deletion_total=0, my_commits=0, cursor=None):
     global OWNER_ID
     query = '''
-    query ($repo_name: String!, $owner: String!, $cursor: String) {
+    query ($repo_name: String!, $owner: String!, $cursor: String, $first: Int!) {
         repository(name: $repo_name, owner: $owner) {
             defaultBranchRef {
                 target {
                     ... on Commit {
-                        history(first: 100, after: $cursor) {
+                        history(first: $first, after: $cursor) {
                             totalCount
                             edges {
                                 node {
@@ -212,10 +216,22 @@ def recursive_loc(owner, repo_name, data, cache_comment, addition_total=0, delet
             }
         }
     }'''
+    first = 100
     while True:
         query_count('recursive_loc')
-        variables = {'repo_name': repo_name, 'owner': owner, 'cursor': cursor}
-        request = graphql_post(query, variables)
+        variables = {'repo_name': repo_name, 'owner': owner, 'cursor': cursor, 'first': first}
+        request = graphql_post(query, variables, retries=1)
+        # GitHub times out computing additions/deletions for pages of large commits, either as a 5xx
+        # or as a 200 with no data; the same page will keep failing, so ask for fewer commits instead
+        timed_out = request.status_code in (502, 503, 504) or (
+            request.status_code == 200 and request.json().get('data') is None)
+        if timed_out and first > 1:
+            first = max(1, first // 2)
+            print('   ' + owner + '/' + repo_name, 'timed out, retrying with', first, 'commits per page')
+            continue
+        if timed_out:
+            force_close_file(data, cache_comment)
+            raise GitHubTimeout(owner + '/' + repo_name, request.status_code, QUERY_COUNT)
         if request.status_code != 200:
             force_close_file(data, cache_comment)
             if request.status_code == 403:
@@ -319,7 +335,12 @@ def cache_builder(edges, comment_size, force_cache, loc_add=0, loc_del=0):
                 hist = edges[index]['node']['defaultBranchRef']['target']['history']
                 if int(commit_count) != hist['totalCount']:
                     owner, repo_name = edges[index]['node']['nameWithOwner'].split('/')
-                    loc = recursive_loc(owner, repo_name, data, cache_comment)
+                    try:
+                        loc = recursive_loc(owner, repo_name, data, cache_comment)
+                    except GitHubTimeout as e:
+                        # Keep this repo's last cached numbers; its stale commit count makes the next run retry it
+                        print('   Skipping', e.args[0], '- GitHub kept timing out, using cached LOC')
+                        continue
                     data[index] = f"{repo_hash} {hist['totalCount']} {loc[2]} {loc[0]} {loc[1]}\n"
             except (TypeError, AttributeError):
                 data[index] = repo_hash + ' 0 0 0 0\n'
