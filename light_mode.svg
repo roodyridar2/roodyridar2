@@ -58,7 +58,7 @@
         <text x="100" y="46" class="name">Ayub Mahmood</text>
         <text x="100" y="72" class="tagline">Software Engineer @ Otee <tspan class="f">·</tspan> Erbil, Kurdistan <tspan class="f">·</tspan> Arch + Hyprland</text>
         <text x="904" y="46" font-size="14" font-weight="700" class="bl" text-anchor="end">ayub.is-a.dev</text>
-        <text x="904" y="72" font-size="12" font-weight="600" class="m" text-anchor="end">uptime <tspan id="age_data" class="gr">23 years, 9 months, 30 days</tspan></text>
+        <text x="904" y="72" font-size="12" font-weight="600" class="m" text-anchor="end">uptime <tspan id="age_data" class="gr">23 years, 10 months, 0 days</tspan></text>
     </g>
 
     <!-- Stat tiles -->
@@ -66,7 +66,7 @@
         <g>
             <rect width="223" height="110" rx="12" fill="#EFF8EC" stroke="#CFE8C8"/>
             <text x="22" y="32" class="lbl">CURRENT STREAK</text>
-            <text x="22" y="82"><tspan id="streak_data" class="big gr">12</tspan><tspan id="streak_unit" dx="10" class="unit">days</tspan></text>
+            <text x="22" y="82"><tspan id="streak_data" class="big gr">13</tspan><tspan id="streak_unit" dx="10" class="unit">days</tspan></text>
         </g>
         <g transform="translate(235, 0)">
             <rect width="223" height="110" rx="12" fill="#F4EEFE" stroke="#E0D2FB"/>
@@ -76,12 +76,12 @@
         <g transform="translate(470, 0)">
             <rect width="223" height="110" rx="12" fill="#EDF3FE" stroke="#D2E0FB"/>
             <text x="22" y="32" class="lbl">CONTRIBUTIONS · PAST YEAR</text>
-            <text x="22" y="82"><tspan id="contrib_data" class="big bl">4,473</tspan></text>
+            <text x="22" y="82"><tspan id="contrib_data" class="big bl">4,484</tspan></text>
         </g>
         <g transform="translate(705, 0)">
             <rect width="223" height="110" rx="12" fill="#FFFFFF" stroke="#E1E4ED"/>
             <text x="22" y="32" class="lbl">REPOSITORIES</text>
-            <text x="22" y="82"><tspan id="repo_data" class="big t">95</tspan><tspan dx="10" class="unit">owned</tspan></text>
+            <text x="22" y="82"><tspan id="repo_data" class="big t">96</tspan><tspan dx="10" class="unit">owned</tspan></text>
         </g>
     </g>
 
@@ -93,20 +93,20 @@
             <line x1="0" y1="20" x2="512" y2="20" stroke="#E1E4ED" stroke-dasharray="4,4"/>
             <line x1="0" y1="70" x2="512" y2="70" stroke="#E1E4ED" stroke-dasharray="4,4"/>
             <line x1="0" y1="120" x2="512" y2="120" stroke="#DCE0EA"/>
-            <path id="bar_0" d="M 28,120 L 28,68 Q 28,63 33,63 L 63,63 Q 68,63 68,68 L 68,120 Z" class="bar"/>
-            <text id="day_0" x="48" y="142" class="day">Sat</text>
-            <path id="bar_1" d="M 100,120 L 100,25 Q 100,20 105,20 L 135,20 Q 140,20 140,25 L 140,120 Z" class="bar"/>
-            <text id="day_1" x="120" y="142" class="day">Sun</text>
-            <path id="bar_2" d="M 172,120 L 172,77 Q 172,72 177,72 L 207,72 Q 212,72 212,77 L 212,120 Z" class="bar"/>
-            <text id="day_2" x="192" y="142" class="day">Mon</text>
-            <path id="bar_3" d="M 244,120 L 244,107 Q 244,102 249,102 L 279,102 Q 284,102 284,107 L 284,120 Z" class="bar"/>
-            <text id="day_3" x="264" y="142" class="day">Tue</text>
-            <path id="bar_4" d="M 316,120 L 316,50 Q 316,45 321,45 L 351,45 Q 356,45 356,50 L 356,120 Z" class="bar"/>
-            <text id="day_4" x="336" y="142" class="day">Wed</text>
-            <path id="bar_5" d="M 388,120 L 388,102 Q 388,97 393,97 L 423,97 Q 428,97 428,102 L 428,120 Z" class="bar"/>
-            <text id="day_5" x="408" y="142" class="day">Thu</text>
+            <path id="bar_0" d="M 28,120 L 28,25 Q 28,20 33,20 L 63,20 Q 68,20 68,25 L 68,120 Z" class="bar"/>
+            <text id="day_0" x="48" y="142" class="day">Sun</text>
+            <path id="bar_1" d="M 100,120 L 100,77 Q 100,72 105,72 L 135,72 Q 140,72 140,77 L 140,120 Z" class="bar"/>
+            <text id="day_1" x="120" y="142" class="day">Mon</text>
+            <path id="bar_2" d="M 172,120 L 172,107 Q 172,102 177,102 L 207,102 Q 212,102 212,107 L 212,120 Z" class="bar"/>
+            <text id="day_2" x="192" y="142" class="day">Tue</text>
+            <path id="bar_3" d="M 244,120 L 244,50 Q 244,45 249,45 L 279,45 Q 284,45 284,50 L 284,120 Z" class="bar"/>
+            <text id="day_3" x="264" y="142" class="day">Wed</text>
+            <path id="bar_4" d="M 316,120 L 316,102 Q 316,97 321,97 L 351,97 Q 356,97 356,102 L 356,120 Z" class="bar"/>
+            <text id="day_4" x="336" y="142" class="day">Thu</text>
+            <path id="bar_5" d="M 388,120 L 388,116 Q 388,111 393,111 L 423,111 Q 428,111 428,116 L 428,120 Z" class="bar"/>
+            <text id="day_5" x="408" y="142" class="day">Fri</text>
             <path id="bar_6" d="M 460,120 L 460,117 Q 460,112 465,112 L 495,112 Q 500,112 500,117 L 500,120 Z" class="bar-active"/>
-            <text id="day_6" x="480" y="142" class="day">Fri</text>
+            <text id="day_6" x="480" y="142" class="day">Sat</text>
         </g>
     </g>
 
@@ -114,12 +114,12 @@
     <g transform="translate(588, 254)">
         <rect width="356" height="210" rx="12" fill="#FFFFFF" stroke="#E1E4ED" filter="url(#softShadow)"/>
         <text x="22" y="32" class="lbl">LINES OF CODE</text>
-        <text x="22" y="66" id="loc_data" font-size="28" font-weight="800" class="t">20,289,698</text>
-        <text x="22" y="90" font-size="12" font-weight="700"><tspan id="loc_add" class="gr">++ 31,605,378</tspan><tspan dx="14" id="loc_del" class="rd">-- 11,315,680</tspan></text>
+        <text x="22" y="66" id="loc_data" font-size="28" font-weight="800" class="t">20,334,614</text>
+        <text x="22" y="90" font-size="12" font-weight="700"><tspan id="loc_add" class="gr">++ 31,654,995</tspan><tspan dx="14" id="loc_del" class="rd">-- 11,320,381</tspan></text>
         <line x1="22" y1="106" x2="334" y2="106" stroke="#E1E4ED"/>
         <text x="22" y="128" class="lbl">COMMITS</text>
         <text x="182" y="128" class="lbl">FOLLOWERS</text>
-        <text x="22" y="152" id="commit_data" class="num">4,281</text>
+        <text x="22" y="152" id="commit_data" class="num">4,291</text>
         <text x="182" y="152" id="follower_data" class="num">13</text>
         <g transform="translate(22, 172)">
             <rect width="66" height="22" rx="11" fill="#F4F5F9" stroke="#E1E4ED"/><text x="33" y="15" class="chip">Flutter</text>
